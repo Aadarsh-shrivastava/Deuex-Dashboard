@@ -7,10 +7,16 @@
   --secondary: #f4f6fd;
 
   --blue: #1c1f6e;
+  --shadow: #1c1f6e1f;
   --green: #ff6d6d;
   --red: #14cdc8;
   --yellow: #f9d100;
   --white: #ffffff;
+}
+
+html {
+  font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 *,
@@ -18,13 +24,105 @@
 *::after {
   box-sizing: border-box;
   border: none;
+  margin: 0;
+  padding: 0;
 }
 
 img {
   display: block;
   max-width: 100%;
+  /* height: inherit; */
+}
+body {
+  background-color: var(--background);
 }
 
-html {
-  font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+nav {
+  height: 6rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* border: #000 1px solid; */
+  box-shadow: 0px 6px 5px var(--shadow);
+}
+
+.nav-links {
+  height: 4em;
+  width: 25em;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav-option {
+  height: 25px;
+  width: 35px;
+}
+
+.sidebar-container {
+  position: fixed;
+  right: 0;
+  background-color: var(--card-bg);
+  width: 25em;
+  height: 100vh;
+  border-top-left-radius: 2rem;
+}
+.horizontal-padding {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.cards {
+  height: 15em;
+  width: 100%;
+  margin-top: 5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  align-items: center;
+  /* border: black 1px solid; */
+  gap: 10px;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  min-width: 25rem;
+  border-radius: 20px;
+  background-color: var(--card-bg);
+  padding: 3rem;
+  /* border: black 1px solid; */
+  align-content: center;
+}
+.card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.values {
+  font-size: 4rem;
+  font-weight: lighter;
+  color: var(--text-primary);
+}
+.metric {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+.card-icon > img {
+  height: 50px;
+  width: 50px;
 }
