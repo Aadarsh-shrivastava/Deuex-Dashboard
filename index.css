@@ -31,6 +31,7 @@ html {
 img {
   display: block;
   max-width: 100%;
+  margin: 0.5rem;
   /* height: inherit; */
 }
 body {
@@ -43,6 +44,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 6rem;
   /* border: #000 1px solid; */
   box-shadow: 0px 6px 5px var(--shadow);
 }
@@ -61,48 +63,61 @@ nav {
   height: 25px;
   width: 35px;
 }
-
-.sidebar-container {
+#sidebar {
   position: fixed;
-  right: 0;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
   background-color: var(--card-bg);
-  width: 25em;
-  height: 100vh;
-  border-top-left-radius: 2rem;
+  color: white;
+  transition: right 0.5s ease-in-out;
+  padding: 20px;
 }
+#sidebar:target {
+  right: 0;
+}
+
 .horizontal-padding {
   padding-left: 4rem;
   padding-right: 4rem;
 }
-
-.cards {
-  height: 15em;
-  width: 100%;
-  margin-top: 5rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  border-radius: 20px;
-  align-items: center;
-  /* border: black 1px solid; */
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
   gap: 10px;
 }
 
 .card {
-  height: 100%;
-  width: 100%;
-  min-width: 25rem;
+  /* display: flex;
+  flex-grow: 1;
+  justify-content: center; */
+  height: 15em;
   border-radius: 20px;
   background-color: var(--card-bg);
-  padding: 3rem;
-  /* border: black 1px solid; */
-  align-content: center;
+  padding: 2rem;
 }
+
+.card.charts:nth-child(5) {
+  grid-column: span 3;
+}
+
+/* First chart spans 3 columns */
+.card.charts:nth-child(6) {
+  grid-column: span 1;
+}
+
+/* Second chart spans 1 column */
+.card:nth-child(7) {
+  grid-column: span 4;
+}
+
+/* Last chart spans all 4 columns */
 .card-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -126,3 +141,145 @@ nav {
   height: 50px;
   width: 50px;
 }
+
+.charts {
+  height: 30rem;
+
+}
+.data-table {
+  height: 40rem;
+}
+
+.pie-chart {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  align-content: center;
+  background: conic-gradient(
+    var(--green) 0deg 90deg,
+    var(--blue) 90deg 180deg,
+    var(--red) 180deg 270deg,
+    var(--yellow) 270deg 360deg /* 25% */
+  );
+}
+.circle {
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: var(--background);
+}
+
+.card-header {
+  width: 100%;
+  height: 4rem;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.show-table:checked ~ .data-container #table {
+  display: table;
+}
+
+.show-table:checked ~ .data-container #grid {
+  display: none;
+}
+
+.show-grid:checked ~ .data-container #grid {
+  display: block;
+}
+
+.show-grid:checked ~ .data-container #table {
+  display: none;
+}
+
+.toggle-btn {
+  display: inline;
+  background-color: var(--blue);
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.5em;
+}
+.data-container {
+  width: 100%;
+  /* max-width: 800px; */
+  margin: auto;
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* overflow: hidden; */
+  border-radius: 10px;
+}
+
+thead {
+  background-color: var(--blue);
+  color: var(--white);
+  font-weight: bold;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--gray);
+}
+
+tbody tr:hover {
+  background-color: var(--light-blue);
+  color: var(--white);
+  transition: 0.3s;
+}
+.icon-small {
+  height: 2rem;
+  width: 2rem;
+}
+.icon-mid {
+  height: 3rem;
+  width: 3rem;
+}
+
+.button {
+  background-color: var(--blue);
+  color: white;
+  border-radius: 4px;
+  height: 5rem;
+  padding: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+#showTable:checked + label {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+#showGrid:checked + label {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+
+    

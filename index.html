@@ -7,7 +7,14 @@
     <link href="./index.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- <aside id="sidebar" class="sidebar-container"></aside> -->
+    <aside id="sidebar" >
+        <button class="button">
+            <a href="#" style="text-decoration: none" class="close-btn">Close</a>
+        </button>
+        <button class="button" style="text-decoration: none">Add</button>
+        
+    </aside>
+
     <nav class="horizontal-padding">
       <img id="logo" src="./assets/logo.png" />
       <div class="nav-links">
@@ -22,10 +29,9 @@
         </select>
       </div>
     </nav>
-
     <main class="horizontal-padding">
-      <!-- statistics cards -->
-      <div id="stats" class="cards">
+      <div class="container">
+        <!-- statistics cards -->
         <div class="card">
           <div class="card-content">
             <div class="stat">
@@ -70,8 +76,103 @@
             </div>
           </div>
         </div>
-      </div>
+
+        <!-- charts and graphs (now aligned properly) -->
+        <div class="card charts">
+          <div class="card-header">
+            <p class="card-title">Total Revenue / Losses</p>
+            <input type="date" />
+          </div>
+        </div>
+        <!-- Spans 3 columns -->
+        <div class="card charts">
+            <div class="card-header">
+                <p class="card-title">Total Sales</p>
+                
+            </div>
+            <div class="card-content">
+                <div class="pie-chart">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Spans 1 column -->
+        
+        <div class="card data-table">
+            <div class="card-header">
+                <p class="card-title">Product Details</p>
+                <div class="buttons" >
+                        <label for="showTable" id="show-table-label">
+                            <img class="icon-mid " style="display: inline;" src="./assets/table-alt-svgrepo-com (1).svg"/>
+                        </label>
+                        <label for="showGrid" id="show-grid-label">
+                            <img class="icon-mid" style="display: inline;" src="./assets/table-alt-svgrepo-com (1).svg"/>
+                        </label>
+                    </div>
+                        <button class="button">
+                        <a style="color: white;" href="#sidebar" class="toggle-btn">Add Record +</a>
+                    </button>
+                
+            </div>
+
+            <!-- Hidden radio buttons to toggle -->
+            <input type="radio" id="showTable" name="tableToggle" class="show-table" checked hidden>
+            <input type="radio" id="showGrid" name="tableToggle" class="show-grid" hidden>
+
+            <div class="data-container">
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Product Name</th>
+                            <th>Product Date</th>
+                            <th>Exchange</th>
+                            <th>Color Options</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Bluetooth Speaker</td>
+                            <td>22/07/2024</td>
+                            <td><img style="display: inline;" class="icon-small" src="./assets/wrong.svg" /></td>
+                            <td>Red</td>
+                            <td>4500</td>
+                            <td>3</td>
+                            <td>13500</td>
+                            <td>
+                                <img style="display: inline;" class="icon-small" src="./assets/edit-4-svgrepo-com.svg" />
+                                <img style="display: inline;" class="icon-small" src="./assets/delete-svgrepo-com (1).svg" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Bluetooth Speaker</td>
+                            <td>22/07/2024</td>
+                            <td><img style="display: inline;" class="icon-small" src="./assets/tick.svg" /></td>
+                            <td>Red</td>
+                            <td>4500</td>
+                            <td>3</td>
+                            <td>13500</td>
+                            <td>
+                                <img style="display: inline;" class="icon-small" src="./assets/edit-4-svgrepo-com.svg" />
+                                <img style="display: inline;" class="icon-small" src="./assets/delete-svgrepo-com (1).svg" />
+                            </td>
+                        </tr>
+                       
+                    </tbody>
+                  </table>
+            </div>
+
+
+        </div>
+        <!-- Spans 4 columns -->
     </main>
+
     <footer></footer>
   </body>
 </html>
