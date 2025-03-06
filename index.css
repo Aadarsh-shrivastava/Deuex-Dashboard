@@ -1,0 +1,30 @@
+:root {
+  --background: #ffffff;
+  --card-bg: #f4f6fd;
+  --text-primary: #000;
+  --text-secondary: #1c1f6e;
+  --primary: #1c1f6e;
+  --secondary: #f4f6fd;
+
+  --blue: #1c1f6e;
+  --green: #ff6d6d;
+  --red: #14cdc8;
+  --yellow: #f9d100;
+  --white: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+html {
+  font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+}
