@@ -87,19 +87,122 @@
         <div class="card charts">
           <div class="card-header">
             <p class="card-title">Total Revenue / Losses</p>
-            <input type="date" />
+            <input type="month" id="monthPicker" value="2024-07">
           </div>
+          <div class="graph-container">
+            <svg class="graph" width="100%" height="300" style="">
+              <!-- Horizontal Grid Lines with Labels -->
+              <line x1="50" y1="50" x2="1300" y2="50" stroke="lightgray"/>
+              <line x1="50" y1="100" x2="1300" y2="100" stroke="lightgray" />
+              <line x1="50" y1="150" x2="1300" y2="150" stroke="lightgray" />
+              <line x1="50" y1="200" x2="1300" y2="200" stroke="lightgray" />
+              <line x1="50" y1="250" x2="1300" y2="250" stroke="lightgray" />
           
+              <!-- Labels for Horizontal Grid -->
+              <text x="10" y="255" font-size="12" fill="black">0M</text>
+              <text x="10" y="205" font-size="12" fill="black">3M</text>
+              <text x="10" y="155" font-size="12" fill="black">6M</text>
+              <text x="10" y="105" font-size="12" fill="black">9M</text>
+              <text x="10" y="55" font-size="12" fill="black">12M</text>
+              <text x="10" y="15" font-size="12" fill="black">15M</text>
+          
+              
+          
+              <!-- Labels -->
+              <text x="50" y="290" font-size="12" fill="black">Mon</text>
+              <text x="250" y="290" font-size="12" fill="black">Tue</text>
+              <text x="450" y="290" font-size="12" fill="black">Wed</text>
+              <text x="650" y="290" font-size="12" fill="black">Thu</text>
+              <text x="850" y="290" font-size="12" fill="black">Fri</text>
+              <text x="1050" y="290" font-size="12" fill="black">Sat</text>
+              <text x="1250" y="290" font-size="12" fill="black">Sun</text>
+              
+
+              <defs>
+                <linearGradient id="curveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#1c1f6e" stop-opacity="0.6"/> <!-- Darker Blue -->
+                    <stop offset="80%" stop-color="#1c1f6e11" stop-opacity="0.1"/> <!-- Lighter Blue -->
+                </linearGradient>
+                <linearGradient id="curveGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#14cdc8" stop-opacity="0.3"/> 
+                    <stop offset="80%" stop-color="#14cdc811" stop-opacity="0.3"/> 
+                </linearGradient>
+            </defs>
+            
+              <!-- Smooth curve -->
+              <path d="M50,150 Q100,180 150,170  T150,170 T250,140 T450,110 T650,95 T850,100 
+              T1050,85  T1250,80 L1250,300 L50,300 Z" 
+        fill="url(#curveGradient)" stroke="none"/>
+
+        <path d="M50,150 Q120,180 150,170  T150,170 T250,140 T450,110 T650,95 T850,100 
+        T1050,85  T1250,80 " 
+           stroke="#1c1f6e" stroke-width="3" fill="none"/>
+     
+           <path d="M50,250 Q100,180 150,200 T250,220 T450,190 T650,210 T850,190 
+           T1050,210 T1250,190 L1250,300 L50,300 Z" 
+     fill="url(#curveGradient2)" stroke="none"/>
+
+              <path d="M50,250 Q100,180 150,200 T250,220 T450,190 T650,210 T850,190 
+              T1050,210 T1250,190" 
+              stroke="#14cdc8" stroke-width="3" fill="none"/>
+
+              
+          <!-- Data Points -->
+          <circle cx="50" cy="150" r="5" fill="#1c1f6e"/>  
+          <circle cx="150" cy="170" r="5" fill="#1c1f6e"/>  
+          <circle cx="250" cy="140" r="5" fill="#1c1f6e"/>  
+          <circle cx="450" cy="110" r="5" fill="#1c1f6e"/>  
+          <circle cx="650" cy="95" r="5" fill="#1c1f6e"/>  
+          <circle cx="850" cy="100" r="5" fill="#1c1f6e"/>  
+          <circle cx="1050" cy="85" r="5" fill="#1c1f6e"/>  
+          <circle cx="1250" cy="80" r="5" fill="#1c1f6e"/>  
+
+
+            <!-- Data points for the new curve -->
+          <circle cx="50" cy="250" r="5" fill="#14cdc8"/>
+          <circle cx="150" cy="200" r="5" fill="#14cdc8"/>
+          <circle cx="250" cy="220" r="5" fill="#14cdc8"/>
+          <circle cx="450" cy="190" r="5" fill="#14cdc8"/>
+          <circle cx="650" cy="210" r="5" fill="#14cdc8"/>
+          <circle cx="850" cy="190" r="5" fill="#14cdc8"/>
+          <circle cx="1050" cy="210" r="5" fill="#14cdc8"/>
+          <circle cx="1250" cy="190" r="5" fill="#14cdc8"/>
+
+          </svg>
+        </div>
         </div>
         <div class="card charts">
             <div class="card-header">
                 <p class="card-title">Total Sales</p>
                 
             </div>
-            <div class="card-content">
-                <div class="pie-chart">
-                    <div class="circle"></div>
-                </div>
+            <div class="card-content" style="flex-direction: column;">
+                  <svg width="200" height="200" viewBox="0 0 42 42" class="donut-chart">
+                    <circle class="donut-background" cx="21" cy="21" r="15.9155" fill="transparent" stroke="#1c1f6e" stroke-width="5"></circle>
+                  
+                    <circle class="donut-segment" cx="21" cy="21" r="15.9155"
+                      fill="transparent" stroke="#1c1f6e" stroke-width="5"
+                      stroke-dasharray="20 80" stroke-dashoffset="0"></circle>
+                  
+                    <circle class="donut-segment" cx="21" cy="21" r="15.9155"
+                      fill="transparent" stroke="#ff6d6d" stroke-width="5"
+                      stroke-dasharray="30 70" stroke-dashoffset="-20"></circle>
+                  
+                    <circle class="donut-segment" cx="21" cy="21" r="15.9155"
+                      fill="transparent" stroke="#14cdc8" stroke-width="5"
+                      stroke-dasharray="30 70" stroke-dashoffset="-50"></circle>
+                    
+                      <circle class="donut-segment" cx="21" cy="21" r="15.9155"
+                      fill="transparent" stroke="#f9d100" stroke-width="5"
+                      stroke-dasharray="20 80" stroke-dashoffset="-80"></circle>
+                  </svg>
+
+                    <div class="chart-points">
+                        <div class="chart-point"><div class="point" style="background-color: #1c1f6e;"></div>Product 1</div>
+                        <div class="chart-point"><div class="point" style="background-color: #ff6d6d;"></div>Product 2</div>
+                        <div class="chart-point"><div class="point" style="background-color: #14cdc8;"></div>Product 3</div>
+                        <div class="chart-point"><div class="point" style="background-color: #f9d100;"></div>Product 4</div>
+                    </div>
             </div>
         </div> 
 
@@ -112,14 +215,14 @@
                             <img class="icon-mid " style="display: inline;" src="./assets/table-alt-svgrepo-com (1).svg"/>
                         </label>
                         <label for="showGrid" id="show-grid-label">
-                            <img class="icon-mid" style="display: inline;" src="./assets/table-alt-svgrepo-com (1).svg"/>
+                            <img class="icon-mid" style="display: inline;" src="./assets/table-rows-svgrepo-com.svg"/>
                         </label>
                         <button class="button">
                         <a style="color: white;" href="#sidebar" class="toggle-btn">Add Record +</a>
                       </button>
                     </div>
+                  </div>
                 
-            </div>
 
         <input
           type="radio"
@@ -211,6 +314,95 @@
               </tr>
             </tbody>
           </table>
+
+          <div id="grid" >
+            <div class="data-grid">
+              <div class="data-card">
+                <div class="data-card-header">
+                    <h3>Bluetooth Speaker <i class="fa-solid fa-circle-info" style="color:#555;"></i></h3>
+                    <div class="icons">
+                      <img
+                      style="display: inline"
+                      class="icon-small"
+                      src="./assets/edit-4-svgrepo-com.svg"
+                    />
+                    <img
+                      style="display: inline"
+                      class="icon-small"
+                      src="./assets/delete-svgrepo-com (1).svg"
+                    />
+                    </div>
+                </div>
+                
+                <div class="data-card-content">
+                    <span><strong>ID</strong></span> <span>01</span>
+                    <span><strong>Product Date</strong></span> <span>22/07/2024</span>
+                    <span><strong>Status</strong></span> <span class="status">&#10004;</span>
+                    <span><strong>Color Option</strong></span> <span>Red, Blue</span>
+                    <span><strong>Quantity</strong></span> <span>3</span>
+                    <span><strong>Price</strong></span> <span class="price">4500</span>
+                    <span><strong>Amount</strong></span> <span>13500</span>
+                </div>
+            </div>
+
+              <div class="data-card">
+                <div class="data-card-header">
+                    <h3>Bluetooth Speaker <i class="fa-solid fa-circle-info" style="color:#555;"></i></h3>
+                    <div class="icons">
+                      <img
+                      style="display: inline"
+                      class="icon-small"
+                      src="./assets/edit-4-svgrepo-com.svg"
+                    />
+                    <img
+                      style="display: inline"
+                      class="icon-small"
+                      src="./assets/delete-svgrepo-com (1).svg"
+                    />
+                    </div>
+                </div>
+                
+                <div class="data-card-content">
+                    <span><strong>ID</strong></span> <span>01</span>
+                    <span><strong>Product Date</strong></span> <span>22/07/2024</span>
+                    <span><strong>Status</strong></span> <span class="status">&#10004;</span>
+                    <span><strong>Color Option</strong></span> <span>Red, Blue</span>
+                    <span><strong>Quantity</strong></span> <span>3</span>
+                    <span><strong>Price</strong></span> <span class="price">4500</span>
+                    <span><strong>Amount</strong></span> <span>13500</span>
+                </div>
+            </div>
+
+              <div class="data-card">
+                <div class="data-card-header">
+                    <h3>Bluetooth Speaker <i class="fa-solid fa-circle-info" style="color:#555;"></i></h3>
+                    <div class="icons">
+                      <img
+                      style="display: inline"
+                      class="icon-small"
+                      src="./assets/edit-4-svgrepo-com.svg"
+                    />
+                    <img
+                      style="display: inline"
+                      class="icon-small"
+                      src="./assets/delete-svgrepo-com (1).svg"
+                    />
+                    </div>
+                </div>
+                
+                <div class="data-card-content">
+                    <span><strong>ID</strong></span> <span>01</span>
+                    <span><strong>Product Date</strong></span> <span>22/07/2024</span>
+                    <span><strong>Status</strong></span> <span class="status">&#10004;</span>
+                    <span><strong>Color Option</strong></span> <span>Red, Blue</span>
+                    <span><strong>Quantity</strong></span> <span>3</span>
+                    <span><strong>Price</strong></span> <span class="price">4500</span>
+                    <span><strong>Amount</strong></span> <span>13500</span>
+                </div>
+            </div>
+                
+            </div>
+          </div>
         </div>
       </div>
      
