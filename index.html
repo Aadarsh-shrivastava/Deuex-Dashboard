@@ -7,9 +7,215 @@
     <link href="./index.css" rel="stylesheet" />
   </head>
   <body>
-    <nav></nav>
-    <aside></aside>
-    <main></main>
+    <aside id="sidebar">
+      <button class="button">
+        <a href="#" style="text-decoration: none; padding: 2rem; color: white"
+          >Close</a
+        >
+      </button>
+      <button class="button" style="text-decoration: none">
+        <a href="#" style="text-decoration: none; padding: 2rem; color: white"
+          >Add</a
+        >
+      </button>
+    </aside>
+
+    <nav class="horizontal-padding">
+      <img id="logo" src="./assets/logo.png" />
+      <div class="nav-links">
+        <img class="nav-option" src="./assets/notification-svgrepo-com.svg" />
+        <img class="nav-option" src="./assets/settings-svgrepo-com.svg" />
+        <div class="select-container">
+          <img class="profile-image" src="assets/dp.jpg"/>
+          <select name="cars" id="cars" name="otions" >
+            <option value="Edit Profile">Sara John</option>
+            <option value="Edit Profile">Edit Profile</option>
+            <option value="Change Password">Change Password</option>
+            <option value="Logout">Logout</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+    <main class="horizontal-padding">
+      <div class="container">
+        <!-- statistics cards -->
+        <div class="card">
+          <div class="card-content">
+            <div class="stat">
+              <p class="values">46.3K</p>
+              <p class="metric">Total Sales</p>
+            </div>
+            <div class="card-icon">
+              <img src="assets/graph-chart-2-svgrepo-com.svg" />
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <div class="stat">
+              <p class="values">72</p>
+              <p class="metric">Total Sales</p>
+            </div>
+            <div class="card-icon">
+              <img src="assets/bag-add-plus-svgrepo-com.svg" />
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <div class="stat">
+              <p class="values">2318</p>
+              <p class="metric">Total Sales</p>
+            </div>
+            <div class="card-icon">
+              <img src="assets/users-people-svgrepo-com.svg" />
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <div class="stat">
+              <p class="values">3219</p>
+              <p class="metric">Total Sales</p>
+            </div>
+            <div class="card-icon">
+              <img src="assets/checklist-svgrepo-com.svg" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card charts">
+          <div class="card-header">
+            <p class="card-title">Total Revenue / Losses</p>
+            <input type="date" />
+          </div>
+          
+        </div>
+        <div class="card charts">
+            <div class="card-header">
+                <p class="card-title">Total Sales</p>
+                
+            </div>
+            <div class="card-content">
+                <div class="pie-chart">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div> 
+
+
+         <div class="card data-table">
+            <div class="card-header">
+                <p class="card-title">Product Details</p>
+                <div class="buttons" >
+                        <label for="showTable" id="show-table-label">
+                            <img class="icon-mid " style="display: inline;" src="./assets/table-alt-svgrepo-com (1).svg"/>
+                        </label>
+                        <label for="showGrid" id="show-grid-label">
+                            <img class="icon-mid" style="display: inline;" src="./assets/table-alt-svgrepo-com (1).svg"/>
+                        </label>
+                        <button class="button">
+                        <a style="color: white;" href="#sidebar" class="toggle-btn">Add Record +</a>
+                      </button>
+                    </div>
+                
+            </div>
+
+        <input
+          type="radio"
+          id="showTable"
+          name="tableToggle"
+          class="show-table"
+          checked
+          hidden
+        />
+        <input
+          type="radio"
+          id="showGrid"
+          name="tableToggle"
+          class="show-grid"
+          hidden
+        />
+
+        <div class="data-container">
+          <table id="table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Product Date</th>
+                <th>Exchange</th>
+                <th>Color Options</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Bluetooth Speaker</td>
+                <td>22/07/2024</td>
+                <td>
+                  <img
+                    style="display: inline"
+                    class="icon-small"
+                    src="./assets/wrong.svg"
+                  />
+                </td>
+                <td>Red</td>
+                <td>4500</td>
+                <td>3</td>
+                <td>13500</td>
+                <td>
+                  <img
+                    style="display: inline"
+                    class="icon-small"
+                    src="./assets/edit-4-svgrepo-com.svg"
+                  />
+                  <img
+                    style="display: inline"
+                    class="icon-small"
+                    src="./assets/delete-svgrepo-com (1).svg"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Bluetooth Speaker</td>
+                <td>22/07/2024</td>
+                <td>
+                  <img
+                    style="display: inline"
+                    class="icon-small"
+                    src="./assets/tick.svg"
+                  />
+                </td>
+                <td>Red</td>
+                <td>4500</td>
+                <td>3</td>
+                <td>13500</td>
+                <td>
+                  <img
+                    style="display: inline"
+                    class="icon-small"
+                    src="./assets/edit-4-svgrepo-com.svg"
+                  />
+                  <img
+                    style="display: inline"
+                    class="icon-small"
+                    src="./assets/delete-svgrepo-com (1).svg"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+     
+    </main>
+
     <footer></footer>
   </body>
 </html>
