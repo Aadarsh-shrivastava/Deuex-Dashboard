@@ -38,6 +38,45 @@ body {
   background-color: var(--background);
 }
 
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+}
+
+.select-container {
+  position: relative;
+  /* display: inline-block; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 200px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 0.5rem;
+  height: inherit;
+  box-shadow: 0px 4px 6px var(--shadow);
+}
+
+select option {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  width: 10;
+}
+
+select:focus {
+  outline: none;
+  background: var(--secondary);
+}
+
 nav {
   height: 6rem;
   padding: 1rem;
@@ -63,6 +102,12 @@ nav {
   height: 25px;
   width: 35px;
 }
+
+.profile-image {
+  height: 3rem;
+  width: auto;
+  border-radius: 50px;
+}
 #sidebar {
   position: fixed;
   top: 0;
@@ -73,6 +118,7 @@ nav {
   color: white;
   transition: right 0.5s ease-in-out;
   padding: 20px;
+  z-index: 10;
 }
 #sidebar:target {
   right: 0;
@@ -96,23 +142,21 @@ nav {
   border-radius: 20px;
   background-color: var(--card-bg);
   padding: 2rem;
+  min-width: 35rem;
 }
 
 .card.charts:nth-child(5) {
   grid-column: span 3;
 }
 
-/* First chart spans 3 columns */
 .card.charts:nth-child(6) {
   grid-column: span 1;
 }
 
-/* Second chart spans 1 column */
 .card:nth-child(7) {
   grid-column: span 4;
 }
 
-/* Last chart spans all 4 columns */
 .card-content {
   display: flex;
   flex-direction: row;
@@ -140,11 +184,12 @@ nav {
 .card-icon > img {
   height: 50px;
   width: 50px;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 .charts {
   height: 30rem;
-
 }
 .data-table {
   height: 40rem;
@@ -225,7 +270,7 @@ nav {
 table {
   width: 100%;
   border-collapse: collapse;
-  /* overflow: hidden; */
+  overflow: hidden;
   border-radius: 10px;
 }
 
@@ -281,5 +326,112 @@ a {
   color: var(--white);
 }
 
+.card-content {
+  position: relative;
+  width: 100%;
+  max-width: 100rem;
+  padding: 1rem;
+}
 
-    
+.graph-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20rem;
+  max-width: 100%;
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .card {
+    height: 20rem;
+  }
+  .card.charts {
+    height: 30rem;
+  }
+  .card-content {
+    flex-direction: column;
+  }
+  .data-table {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card:nth-child(7) {
+    grid-column: span 2;
+  }
+  .card.charts:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .card.charts:nth-child(6) {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .charts {
+    width: 100%;
+  }
+  .card.charts:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .card.charts:nth-child(6) {
+    grid-column: span 1;
+  }
+  .card:nth-child(7) {
+    grid-column: span 1;
+  }
+
+  .horizontal-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .charts {
+    width: 100%;
+  }
+  .card.charts:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .card.charts:nth-child(6) {
+    grid-column: span 1;
+  }
+  .card:nth-child(7) {
+    grid-column: span 1;
+    height: max-content;
+  }
+  .card-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    margin-top: 2rem;
+  }
+  .data-container {
+    margin-top: 100px;
+  }
+
+  .horizontal-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
