@@ -7,10 +7,16 @@
   --secondary: #f4f6fd;
 
   --blue: #1c1f6e;
+  --shadow: #1c1f6e1f;
   --green: #ff6d6d;
   --red: #14cdc8;
   --yellow: #f9d100;
   --white: #ffffff;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 *,
@@ -18,13 +24,36 @@
 *::after {
   box-sizing: border-box;
   border: none;
+  margin: 0;
+  padding: 0;
 }
 
 img {
   display: block;
   max-width: 100%;
+  margin: 0.5rem;
+}
+body {
+  background-color: var(--background);
 }
 
-html {
-  font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+#sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: var(--card-bg);
+  color: white;
+  transition: right 0.5s ease-in-out;
+  padding: 20px;
+  z-index: 10;
+}
+#sidebar:target {
+  right: 0;
+}
+
+.horizontal-padding {
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
