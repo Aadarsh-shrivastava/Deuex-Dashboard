@@ -1,22 +1,21 @@
 :root {
   --background: #ffffff;
+  --blue: #1c1f6e;
   --card-bg: #f4f6fd;
+  --green: #ff6d6d;
+  --primary: #1c1f6e;
+  --red: #14cdc8;
+  --secondary: #f4f6fd;
+  --shadow: #1c1f6e1f;
   --text-primary: #000;
   --text-secondary: #1c1f6e;
-  --primary: #1c1f6e;
-  --secondary: #f4f6fd;
-
-  --blue: #1c1f6e;
-  --shadow: #1c1f6e1f;
-  --green: #ff6d6d;
-  --red: #14cdc8;
-  --yellow: #f9d100;
   --white: #ffffff;
+  --yellow: #f9d100;
 }
 
 html {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+  font-size: 62.5%;
 }
 
 *,
@@ -32,7 +31,6 @@ img {
   display: block;
   margin: 0.5rem;
   max-width: 100%;
-  /* height: inherit; */
 }
 
 body {
@@ -68,6 +66,8 @@ nav {
   margin-bottom: 6rem;
   padding: 1rem;
 }
+
+/* classes */
 
 .select-container {
   align-content: center;
@@ -115,6 +115,8 @@ nav {
   padding-left: 4rem;
   padding-right: 4rem;
 }
+
+/* media queries */
 
 @media screen and (max-width: 600px) {
   .nav-links {
