@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <aside id="sidebar">
+    <aside id="sidebar" class="sidebar">
       <div class="sidebar-header">
         <span class="sidebar-title">Add New Record</span>
       </div>
@@ -16,13 +16,7 @@
         <form class="form-container">
           <div class="form-group">
             <label for="id">ID</label>
-            <input
-              type="text"
-              style="width: 100%"
-              id="id"
-              value="ID 04"
-              readonly
-            />
+            <input type="text" id="id" value="ID 04" readonly />
           </div>
 
           <div class="form-group">
@@ -34,7 +28,7 @@
 
           <div class="form-group">
             <label for="description">Product Description</label>
-            <textarea id="description" rows="3">
+            <textarea id="description" class="sidebar-description" rows="3">
 Lightweight tracker for monitoring daily activity and health.</textarea
             >
           </div>
@@ -47,74 +41,93 @@ Lightweight tracker for monitoring daily activity and health.</textarea
           <div class="form-group">
             <label>Status</label>
             <div class="radio-group">
-                <input
-                  type="radio"
-                  style="width: fit-content"
-                  id="available"
-                  name="status"
-                  checked
-                />
-                <label for="available">Available</label>
-                <input
-                  type="radio"
-                  style="width: fit-content"
-                  id="not-available"
-                  name="status"
-                />
-                <label for="not-available">Not Available</label>
-              </div>
+              <input
+                type="radio"
+                class="radio-group-input"
+                id="available"
+                name="status"
+                checked
+              />
+              <label for="available">Available</label>
+              <input
+                type="radio"
+                class="radio-group-input"
+                id="not-available"
+                name="status"
+              />
+              <label for="not-available">Not Available</label>
             </div>
+          </div>
 
           <div class="form-group">
             <label>Color Options</label>
             <div class="checkbox-group">
               <div class="color-group">
-                <input type="checkbox" id="red" style="width: auto" />
+                <input type="checkbox" id="red" class="color-group-checkbox" />
                 <div
                   class="color-indicator"
                   style="background-color: red"
                 ></div>
-                <label for="red" style="font-weight: lighter">Red</label>
+                <label for="red" class="color-group-">Red</label>
               </div>
               <div class="color-group">
-                <input type="checkbox" id="yellow" style="width: auto" />
+                <input
+                  type="checkbox"
+                  id="yellow"
+                  class="color-group-checkbox"
+                />
                 <div
                   class="color-indicator"
                   style="background-color: yellow"
                 ></div>
-                <label for="yellow" style="font-weight: lighter">yellow</label>
+                <label for="yellow" class="color-group-label">yellow</label>
               </div>
               <div class="color-group">
-                <input type="checkbox" id="blue" style="width: auto" />
+                <input type="checkbox" id="blue" class="color-group-checkbox" />
                 <div
                   class="color-indicator"
                   style="background-color: blue"
                 ></div>
-                <label for="blue" style="font-weight: lighter">blue</label>
+                <label for="blue" class="color-group-label">blue</label>
               </div>
               <div class="color-group">
-                <input type="checkbox" id="white" style="width: auto" />
+                <input
+                  type="checkbox"
+                  id="white"
+                  class="color-group-checkbox"
+                />
                 <div
                   class="color-indicator"
                   style="background-color: white"
                 ></div>
-                <label for="white" style="font-weight: lighter">white</label>
+                <label for="white" class="color-group-label">white</label>
               </div>
               <div class="color-group">
-                <input type="checkbox" id="black" style="width: auto" />
+                <input
+                  type="checkbox"
+                  id="black"
+                  class="color-group-checkbox"
+                />
                 <div
                   class="color-indicator"
                   style="background-color: black"
                 ></div>
-                <label for="black" style="font-weight: lighter">black</label>
+                <label for="black" class="color-group-label">black</label>
               </div>
             </div>
           </div>
+
           <div class="form-group">
             <label>Quantity</label>
             <div class="quantity-container">
               <button type="button">-</button>
-              <input type="number" value="5" min="1" max="100" />
+              <input
+                type="number"
+                style="text-align: center"
+                value="5"
+                min="1"
+                max="100"
+              />
               <button type="button">+</button>
             </div>
           </div>
@@ -135,14 +148,13 @@ Lightweight tracker for monitoring daily activity and health.</textarea
             </div>
           </div>
         </form>
-        <div class="buttons">
-          <button class="button" style="background-color: white">
-            <a href="#" style="text-decoration: none; color: black; padding: 2rem"
-            >Close</a
-            >
+
+        <div class="sidebar-button-group">
+          <button class="sidebar-button-primary">
+            <a href="#" class="sidebar-button-text-secondary">Close</a>
           </button>
-          <button class="button" style="text-decoration: none">
-            <a href="#" style="text-decoration: none; padding: 2rem">Add</a>
+          <button class="sidebar-button-secondary">
+            <a href="#" class="sidebar-button-text-primary">Add</a>
           </button>
         </div>
       </div>
