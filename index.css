@@ -2,9 +2,9 @@
   --background: #ffffff;
   --blue: #1c1f6e;
   --card-bg: #f4f6fd;
-  --green: #14cdc8;
+  --green: #ff6d6d;
   --primary: #1c1f6e;
-  --red: #ff6d6d;
+  --red: #14cdc8;
   --secondary: #f4f6fd;
   --shadow: #1c1f6e1f;
   --text-primary: #000;
@@ -30,14 +30,25 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  background-color: var(--background);
-}
-
 img {
   display: block;
   margin: 0.5rem;
   max-width: 100%;
+}
+
+body {
+  background-color: var(--background);
+  height: 100vh;
+}
+
+nav {
+  box-shadow: 0px 6px 5px var(--shadow);
+  display: flex;
+  flex-direction: row;
+  height: 6rem;
+  justify-content: space-between;
+  margin-bottom: 6rem;
+  padding: 1rem;
 }
 
 label {
@@ -68,13 +79,97 @@ textarea {
 }
 
 #sidebar:target ~ .blur-background {
+  /* backdrop-filter: blur(2px); */
   background-color: #0006;
   display: block;
   height: 100vh;
+  position: absolute;
+  top: 0;
   width: 100%;
+  z-index: 5;
 }
 
 /* classes */
+
+.drop-down-container {
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  position: relative;
+}
+
+.select-icon {
+  height: 25px;
+  width: 25px;
+}
+
+.nav-links {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 4em;
+  justify-content: space-evenly;
+  padding: 1em;
+  width: auto;
+}
+
+.nav-option {
+  height: 25px;
+  width: 35px;
+}
+
+.profile-image {
+  border-radius: 50px;
+  height: 25px;
+  width: 25px;
+}
+
+.horizontal-padding {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.dropbtn {
+  color: black;
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  width: auto;
+}
+
+.dropdown {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.dropdown-content {
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  display: none;
+  margin-top: 14rem;
+  min-width: 160px;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 .blur-background {
   display: none;
@@ -269,4 +364,26 @@ textarea {
   border: none;
   padding: 10px;
   width: 100%;
+}
+
+/* media queries */
+
+@media screen and (max-width: 600px) {
+  .nav-links {
+    padding: 0.2rem;
+  }
+  .horizontal-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .horizontal-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .dropbtn {
+    display: none;
+  }
 }

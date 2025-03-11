@@ -8,6 +8,28 @@
   </head>
 
   <body>
+    <!--     navbar -->
+    <nav class="horizontal-padding">
+      <img id="logo" src="./assets/logo.png" />
+      <div class="nav-links">
+        <img class="nav-option" src="./assets/bell.svg" />
+        <img class="nav-option" src="./assets/settings.svg" />
+        <div class="drop-down-container">
+          <div class="dropdown">
+            <img class="profile-image" src="assets/dp.jpg" />
+            <div class="dropbtn">Sara John</div>
+            <div class="dropdown-content">
+              <a href="#">Edit Profile</a>
+              <a href="#">Change Password</a>
+              <a href="#">Logout</a>
+            </div>
+            <img class="select-icon" src="./assets/down.svg" />
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!--     sidebar -->
     <aside id="sidebar" class="sidebar">
       <div class="sidebar-header">
         <span class="sidebar-title">Add New Record</span>
@@ -29,7 +51,7 @@
           <div class="form-group">
             <label for="description">Product Description</label>
             <textarea id="description" class="sidebar-description" rows="3">
-Lightweight tracker for monitoring daily activity and health.</textarea
+              Lightweight tracker for monitoring daily activity and health.</textarea
             >
           </div>
 
@@ -163,8 +185,14 @@ Lightweight tracker for monitoring daily activity and health.</textarea
         </div>
       </div>
     </aside>
+
+    <!-- sidebar blur background -->
     <div class="blur-background"></div>
+
+    <!--     main -->
     <main></main>
+
+    <!--     footer -->
     <footer></footer>
   </body>
 </html>
