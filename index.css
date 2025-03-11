@@ -1,30 +1,272 @@
 :root {
   --background: #ffffff;
+  --blue: #1c1f6e;
   --card-bg: #f4f6fd;
+  --green: #14cdc8;
+  --primary: #1c1f6e;
+  --red: #ff6d6d;
+  --secondary: #f4f6fd;
+  --shadow: #1c1f6e1f;
   --text-primary: #000;
   --text-secondary: #1c1f6e;
-  --primary: #1c1f6e;
-  --secondary: #f4f6fd;
-
-  --blue: #1c1f6e;
-  --green: #ff6d6d;
-  --red: #14cdc8;
-  --yellow: #f9d100;
+  --text-gray: #0007;
   --white: #ffffff;
+  --yellow: #f9d100;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
   border: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* elemetns */
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--background);
 }
 
 img {
   display: block;
+  margin: 0.5rem;
   max-width: 100%;
 }
 
-html {
-  font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+label {
+  color: var(--text-primary);
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input,
+select,
+textarea {
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 8px;
+  width: 100%;
+}
+
+/* ids */
+
+#sidebar {
+  right: -300px;
+}
+
+#sidebar:target {
+  right: 0;
+}
+
+#sidebar:target ~ .blur-background {
+  background-color: #0006;
+  display: block;
+  height: 100vh;
+  width: 100%;
+}
+
+/* classes */
+
+.blur-background {
+  display: none;
+}
+
+.horizontal-padding {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.sidebar {
+  background-color: var(--card-bg);
+  border-top-left-radius: 3rem;
+  color: white;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  transition: right 0.5s ease-in-out;
+  width: 300px;
+  z-index: 10;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding: 2rem;
+  padding-bottom: 10rem;
+}
+
+.sidebar-header {
+  background-color: var(--background);
+  border-top-left-radius: 3rem;
+  height: max-content;
+  padding: 2rem;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+.sidebar-title {
+  color: var(--text-primary);
+  display: inline-block;
+  font-size: large;
+  font-weight: bold;
+}
+
+.sidebar-button-text-primary {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar-button-text-secondary {
+  color: black;
+  text-decoration: none;
+}
+
+.sidebar-button-primary {
+  background-color: var(--background);
+  border-radius: 5px;
+  color: white;
+  height: fit-content;
+  padding: 1rem;
+  text-align: center;
+  width: 12rem;
+}
+
+.sidebar-button-secondary {
+  background-color: var(--blue);
+  border-radius: 5px;
+  color: white;
+  height: fit-content;
+  padding: 1rem;
+  text-align: center;
+  width: 12rem;
+}
+
+.sidebar-button-group {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sidebar-label-seondary {
+  color: var(--text-primary);
+}
+
+.form-container {
+  align-items: flex-start;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  justify-content: space-between;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.color-indicator {
+  height: 10px;
+  width: 10px;
+}
+
+.color-group-checkbox {
+  width: auto;
+}
+
+.color-group-label {
+  color: var(--text-primary);
+  display: block;
+  font-size: 14px;
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+
+.sidebar-description {
+  height: 15rem;
+}
+
+.radio-group,
+.checkbox-group {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radio-group-input {
+  width: fit-content;
+}
+
+.checkbox-group input {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.color-group {
+  align-items: first baseline;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.quantity-container {
+  align-content: center;
+  align-items: center;
+  align-items: center;
+  background-color: var(--background);
+  display: flex;
+  gap: 5px;
+  padding-left: 10px;
+}
+
+.quantity-container button {
+  background-color: white;
+  border: var(--card-bg) 2px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 25px;
+  width: 30px;
+}
+
+.price-box {
+  align-items: center;
+  background: var(--background);
+  border: rgb(186, 186, 186) 1px solid;
+  display: flex;
+  font-size: 12px;
+  width: fit-content;
+}
+
+.price-box span {
+  background: var(--background);
+  border-right: rgb(186, 186, 186) 1px solid;
+  font-size: 14px;
+  padding: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.price-box input {
+  border: none;
+  padding: 10px;
+  width: 100%;
 }
