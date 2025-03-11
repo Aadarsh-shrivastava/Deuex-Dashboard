@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
   --background: #ffffff;
   --blue: #1c1f6e;
@@ -26,9 +28,8 @@
 /* elemetns */
 
 html {
-  font-family: Arial;
+  font-family: "Work Sans", sans-serif;
   font-size: 62.5%;
-  font-weight: 300;
 }
 
 img {
@@ -177,8 +178,8 @@ textarea {
 }
 
 .horizontal-padding {
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding-left: 72px;
+  padding-right: 72px;
 }
 
 .sidebar {
@@ -371,15 +372,16 @@ textarea {
 
 .container {
   display: grid;
-  gap: 2.5rem;
+  gap: 24px;
   grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
 }
 
 .card {
   align-content: center;
   background-color: var(--card-bg);
-  border-radius: 20px;
-  height: 15em;
+  border-radius: 16px;
+  height: 124px;
+  /* max-width: 306px; */
   min-width: fit-content;
   padding: 2rem;
 }
@@ -401,14 +403,14 @@ textarea {
 
 .values {
   color: var(--text-primary);
-  font-size: 3rem;
-  font-weight: lighter;
+  font-size: 36px;
+  font-weight: 300;
 }
 
 .metric {
   color: var(--text-secondary);
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .card-icon > img {
@@ -429,7 +431,7 @@ textarea {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   .dropbtn {
     display: none;
   }
@@ -454,13 +456,13 @@ textarea {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .horizontal-padding {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 36px;
+    padding-right: 36px;
   }
 }
