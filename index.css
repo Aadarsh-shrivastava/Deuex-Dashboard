@@ -81,7 +81,6 @@ textarea {
 }
 
 #sidebar:target ~ .blur-background {
-  /* backdrop-filter: blur(2px); */
   background-color: #0006;
   display: block;
   height: 100vh;
@@ -89,6 +88,39 @@ textarea {
   top: 0;
   width: 100%;
   z-index: 5;
+}
+
+/* Hide both graphs by default */
+#revenue-graph,
+#lossess-graph {
+  display: none;
+  min-width: 1300px;
+}
+
+#showRevenueLine,
+#showLossessLine {
+  background-color: transparent;
+  height: 2px;
+  width: 94px;
+}
+
+/* Show revenue graph when revenue radio is checked */
+#showRevenue:checked ~ .graph-container #revenue-graph {
+  display: inline-block;
+}
+
+/* Show losses graph when losses radio is checked */
+#showLossess:checked ~ .graph-container #lossess-graph {
+  display: inline-block;
+}
+/* Show revenue line when revenue radio is checked */
+#showRevenue:checked ~ .switch-graph-line #showRevenueLine {
+  background-color: #1b1e6d;
+}
+
+/* Show losses line when losses radio is checked */
+#showLossess:checked ~ .switch-graph-line #showLossessLine {
+  background-color: #1b1e6d;
 }
 
 /* classes */
@@ -381,9 +413,41 @@ textarea {
   background-color: var(--card-bg);
   border-radius: 16px;
   height: 124px;
-  /* max-width: 306px; */
-  min-width: fit-content;
-  padding: 2rem;
+  padding: 24px;
+}
+
+.card.charts:nth-child(5) {
+  grid-column: span 3;
+  height: fit-content;
+}
+
+.card-header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 4rem;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.month-picker {
+  align-items: center;
+  background-color: white;
+  border: 1px solid #464f6029;
+  border-radius: 4px;
+  color: var(--text-gray);
+  display: flex;
+  font-size: 14px;
+  height: 34px;
+  justify-content: space-between;
+  padding: 12px;
+  width: 184px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .card-content {
@@ -420,11 +484,49 @@ textarea {
   width: 50px;
 }
 
+.charts {
+  height: fit-content;
+}
+
+.switch-graph {
+  align-items: center;
+  display: flex;
+  height: 24px;
+  justify-content: space-evenly;
+  width: 188px;
+}
+
+.switch-graph-line {
+  align-items: center;
+  display: flex;
+  height: 24px;
+  justify-content: space-between;
+  width: 188px;
+}
+
+.switch-graph > label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.graph-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical scroll */
+  white-space: nowrap;
+  width: 100%;
+}
+
 /* media queries */
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 496px) {
   .container {
     grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .card{
+    min-width: 300px;
+  }
+  .card.charts:nth-child(5) {
+    grid-column: span 1 !important;
   }
 
   .horizontal-padding {
@@ -461,6 +563,13 @@ textarea {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .card.charts:nth-child(5) {
+    grid-column: span 2;
+    height: fit-content;
+  }
+  .card-header {
+    height: max-content;
+  }
   .horizontal-padding {
     padding-left: 36px;
     padding-right: 36px;

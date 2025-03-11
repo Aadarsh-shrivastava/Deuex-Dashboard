@@ -1,246 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deuex</title>
-    <link href="./index.css" rel="stylesheet" />
-  </head>
 
-  <body>
-    <!--     navbar -->
-    <nav class="horizontal-padding">
-      <img id="logo" src="./assets/logo.png" />
-      <div class="nav-links">
-        <img class="nav-option" src="./assets/Notification.svg" />
-        <img class="nav-option" src="./assets/Setting.svg" />
-        <div class="drop-down-container">
-          <div class="dropdown">
-            <img class="profile-image" src="assets/dp.jpg" />
-            <div class="dropbtn">Sara John</div>
-            <div class="dropdown-content">
-              <a href="#">Edit Profile</a>
-              <a href="#">Change Password</a>
-              <a href="#">Logout</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deuex</title>
+  <link href="./index.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!--     navbar -->
+  <nav class="horizontal-padding">
+    <img id="logo" src="./assets/logo.png" />
+    <div class="nav-links">
+      <img class="nav-option" src="./assets/Notification.svg" />
+      <img class="nav-option" src="./assets/Setting.svg" />
+      <div class="drop-down-container">
+        <div class="dropdown">
+          <img class="profile-image" src="assets/dp.jpg" />
+          <div class="dropbtn">Sara John</div>
+          <div class="dropdown-content">
+            <a href="#">Edit Profile</a>
+            <a href="#">Change Password</a>
+            <a href="#">Logout</a>
+          </div>
+          <img class="select-icon" src="./assets/down.svg" />
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!--     sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title">Add New Record</span>
+    </div>
+    <div class="sidebar-container">
+      <form class="form-container">
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input type="text" id="id" value="ID 04" readonly />
+        </div>
+
+        <div class="form-group">
+          <label for="product-name">Product Name</label>
+          <select id="product-name">
+            <option>Fitness Tracker</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Product Description</label>
+          <textarea id="description" class="sidebar-description" rows="3">
+              Lightweight tracker for monitoring daily activity and health.</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" value="2024-07-23" />
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+          <div class="radio-group">
+            <input type="radio" class="radio-group-input" id="available" name="status" checked />
+            <label for="available">Available</label>
+            <input type="radio" class="radio-group-input" id="not-available" name="status" />
+            <label for="not-available">Not Available</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Color Options</label>
+          <div class="checkbox-group">
+            <div class="color-group">
+              <input type="checkbox" id="red" class="color-group-checkbox" />
+              <div class="color-indicator" style="background-color: red"></div>
+              <p class="color-group-label">Red</p>
             </div>
-            <img class="select-icon" src="./assets/down.svg" />
+            <div class="color-group">
+              <input type="checkbox" id="yellow" class="color-group-checkbox" />
+              <div class="color-indicator" style="background-color: yellow"></div>
+              <p class="color-group-label">yellow</p>
+            </div>
+            <div class="color-group">
+              <input type="checkbox" id="blue" class="color-group-checkbox" />
+              <div class="color-indicator" style="background-color: blue"></div>
+              <p class="color-group-label">blue</p>
+            </div>
+            <div class="color-group">
+              <input type="checkbox" id="white" class="color-group-checkbox" />
+              <div class="color-indicator" style="background-color: white"></div>
+              <p class="color-group-label">white</p>
+            </div>
+            <div class="color-group">
+              <input type="checkbox" id="black" class="color-group-checkbox" />
+              <div class="color-indicator" style="background-color: black"></div>
+              <p class="color-group-label">black</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Quantity</label>
+          <div class="quantity-container">
+            <button type="button">-</button>
+            <input type="number" style="text-align: center" value="5" min="1" max="100" />
+            <button type="button">+</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Price</label>
+          <div class="price-box">
+            <span class="sidebar-label-seondary">INR</span>
+            <input type="text" value="3200" readonly />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Amount</label>
+          <div class="price-box">
+            <span class="sidebar-label-seondary">INR</span>
+            <input type="text" value="16000" readonly />
+          </div>
+        </div>
+      </form>
+
+      <div class="sidebar-button-group">
+        <button class="sidebar-button-primary">
+          <a href="#" class="sidebar-button-text-secondary sidebar-label-seondary">Cancel</a>
+        </button>
+        <button class="sidebar-button-secondary">
+          <span href="#" class="sidebar-button-text-primary">Add</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- sidebar blur background -->
+  <div class="blur-background"></div>
+
+  <!--     main -->
+  <main class="horizontal-padding">
+    <div class="container">
+      <!-- statistics cards -->
+      <div class="card">
+        <div class="card-content">
+          <div class="stat">
+            <p class="values">46.3K</p>
+            <p class="metric">Total Sales</p>
+          </div>
+          <div class="card-icon">
+            <img src="assets/graph.svg" />
           </div>
         </div>
       </div>
-    </nav>
-
-    <!--     sidebar -->
-    <aside id="sidebar" class="sidebar">
-      <div class="sidebar-header">
-        <span class="sidebar-title">Add New Record</span>
-      </div>
-      <div class="sidebar-container">
-        <form class="form-container">
-          <div class="form-group">
-            <label for="id">ID</label>
-            <input type="text" id="id" value="ID 04" readonly />
+      <div class="card">
+        <div class="card-content">
+          <div class="stat">
+            <p class="values">72</p>
+            <p class="metric">Total Items</p>
           </div>
-
-          <div class="form-group">
-            <label for="product-name">Product Name</label>
-            <select id="product-name">
-              <option>Fitness Tracker</option>
-            </select>
+          <div class="card-icon">
+            <img src="assets/bag.svg" />
           </div>
-
-          <div class="form-group">
-            <label for="description">Product Description</label>
-            <textarea id="description" class="sidebar-description" rows="3">
-              Lightweight tracker for monitoring daily activity and health.</textarea
-            >
-          </div>
-
-          <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" id="date" value="2024-07-23" />
-          </div>
-
-          <div class="form-group">
-            <label>Status</label>
-            <div class="radio-group">
-              <input
-                type="radio"
-                class="radio-group-input"
-                id="available"
-                name="status"
-                checked
-              />
-              <label for="available">Available</label>
-              <input
-                type="radio"
-                class="radio-group-input"
-                id="not-available"
-                name="status"
-              />
-              <label for="not-available">Not Available</label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Color Options</label>
-            <div class="checkbox-group">
-              <div class="color-group">
-                <input type="checkbox" id="red" class="color-group-checkbox" />
-                <div
-                  class="color-indicator"
-                  style="background-color: red"
-                ></div>
-                <p class="color-group-label">Red</p>
-              </div>
-              <div class="color-group">
-                <input
-                  type="checkbox"
-                  id="yellow"
-                  class="color-group-checkbox"
-                />
-                <div
-                  class="color-indicator"
-                  style="background-color: yellow"
-                ></div>
-                <p class="color-group-label">yellow</p>
-              </div>
-              <div class="color-group">
-                <input type="checkbox" id="blue" class="color-group-checkbox" />
-                <div
-                  class="color-indicator"
-                  style="background-color: blue"
-                ></div>
-                <p class="color-group-label">blue</p>
-              </div>
-              <div class="color-group">
-                <input
-                  type="checkbox"
-                  id="white"
-                  class="color-group-checkbox"
-                />
-                <div
-                  class="color-indicator"
-                  style="background-color: white"
-                ></div>
-                <p class="color-group-label">white</p>
-              </div>
-              <div class="color-group">
-                <input
-                  type="checkbox"
-                  id="black"
-                  class="color-group-checkbox"
-                />
-                <div
-                  class="color-indicator"
-                  style="background-color: black"
-                ></div>
-                <p class="color-group-label">black</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Quantity</label>
-            <div class="quantity-container">
-              <button type="button">-</button>
-              <input
-                type="number"
-                style="text-align: center"
-                value="5"
-                min="1"
-                max="100"
-              />
-              <button type="button">+</button>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Price</label>
-            <div class="price-box">
-              <span class="sidebar-label-seondary">INR</span>
-              <input type="text" value="3200" readonly />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Amount</label>
-            <div class="price-box">
-              <span class="sidebar-label-seondary">INR</span>
-              <input type="text" value="16000" readonly />
-            </div>
-          </div>
-        </form>
-
-        <div class="sidebar-button-group">
-          <button class="sidebar-button-primary">
-            <a
-              href="#"
-              class="sidebar-button-text-secondary sidebar-label-seondary"
-              >Cancel</a
-            >
-          </button>
-          <button class="sidebar-button-secondary">
-            <span href="#" class="sidebar-button-text-primary">Add</span>
-          </button>
         </div>
       </div>
-    </aside>
+      <div class="card">
+        <div class="card-content">
+          <div class="stat">
+            <p class="values">2318</p>
+            <p class="metric">Total Users</p>
+          </div>
+          <div class="card-icon">
+            <img src="assets/users.svg" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="stat">
+            <p class="values">3219</p>
+            <p class="metric">Total Orders</p>
+          </div>
+          <div class="card-icon">
+            <img src="assets/checklist.svg" />
+          </div>
+        </div>
+      </div>
 
-    <!-- sidebar blur background -->
-    <div class="blur-background"></div>
 
-    <!--     main -->
-    <main class="horizontal-padding">
-      <div class="container">
-        <!-- statistics cards -->
-        <div class="card">
-          <div class="card-content">
-            <div class="stat">
-              <p class="values">46.3K</p>
-              <p class="metric">Total Sales</p>
-            </div>
-            <div class="card-icon">
-              <img src="assets/graph.svg" />
-            </div>
+      <!-- line graph -->
+      <div class="card charts">
+        <div class="card-header">
+          <p class="card-title">Total Revenue / Losses</p>
+          <!-- <input type="month" id="monthPicker" > -->
+          <div class="month-picker">
+            <span>July 24</span>
+            <img src="./assets/calendar.svg" />
           </div>
         </div>
-        <div class="card">
-          <div class="card-content">
-            <div class="stat">
-              <p class="values">72</p>
-              <p class="metric">Total Items</p>
-            </div>
-            <div class="card-icon">
-              <img src="assets/bag.svg" />
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <div class="stat">
-              <p class="values">2318</p>
-              <p class="metric">Total Users</p>
-            </div>
-            <div class="card-icon">
-              <img src="assets/users.svg" />
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <div class="stat">
-              <p class="values">3219</p>
-              <p class="metric">Total Orders</p>
-            </div>
-            <div class="card-icon">
-              <img src="assets/checklist.svg" />
-            </div>
-          </div>
-        </div>
-  
-    </main>
 
-    <!--     footer -->
-    <footer></footer>
-  </body>
+          <div class="switch-graph">
+              <label for="showRevenue" id="show-revenue-label">
+                Revenue
+              </label>
+              <label for="showLossess" id="show-lossess-label">
+                Losses
+              </label>
+          </div>
+          <input type="radio" id="showRevenue" name="showGraph" class="show-revenue" checked hidden />
+          <input type="radio" id="showLossess" name="showGraph" class="show-lossess" hidden/>
+          <div class="switch-graph-line">
+              <div id="showRevenueLine"></div>
+              <div id="showLossessLine"></div>
+          </div>
+          <div class="graph-container">
+            <svg id="revenue-graph" class="revenue-graph" width="100%" height="300">
+              <!-- Horizontal Grid Lines with Labels -->
+              <line x1="50" y1="5" x2="1300" y2="5" stroke="lightgray" />
+              <line x1="50" y1="50" x2="1300" y2="50" stroke="lightgray" />
+              <line x1="50" y1="100" x2="1300" y2="100" stroke="lightgray" />
+              <line x1="50" y1="150" x2="1300" y2="150" stroke="lightgray" />
+              <line x1="50" y1="200" x2="1300" y2="200" stroke="lightgray" />
+              <line x1="50" y1="250" x2="1300" y2="250" stroke="lightgray" />
+
+              <!-- Labels for Horizontal Grid -->
+              <text x="10" y="255" font-size="12" fill="black">0M</text>
+              <text x="10" y="205" font-size="12" fill="black">3M</text>
+              <text x="10" y="155" font-size="12" fill="black">6M</text>
+              <text x="10" y="105" font-size="12" fill="black">9M</text>
+              <text x="10" y="55" font-size="12" fill="black">12M</text>
+              <text x="10" y="15" font-size="12" fill="black">15M</text>
+
+
+
+              <!-- Labels -->
+              <text x="50" y="290" font-size="12" fill="black">Mon</text>
+              <text x="250" y="290" font-size="12" fill="black">Tue</text>
+              <text x="450" y="290" font-size="12" fill="black">Wed</text>
+              <text x="650" y="290" font-size="12" fill="black">Thu</text>
+              <text x="850" y="290" font-size="12" fill="black">Fri</text>
+              <text x="1050" y="290" font-size="12" fill="black">Sat</text>
+              <text x="1250" y="290" font-size="12" fill="black">Sun</text>
+
+
+              <defs>
+                <linearGradient id="curveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#1B1E6D4D" stop-opacity="1" /> <!-- Darker Blue -->
+                  <stop offset="80%" stop-color="#0095FF00" stop-opacity="0.1" /> <!-- Lighter Blue -->
+                </linearGradient>
+                <linearGradient id="curveGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#14CDC84D" stop-opacity="1" />
+                  <stop offset="80%" stop-color="#14cdc811" stop-opacity="0.8" />
+                </linearGradient>
+              </defs>
+
+              <!-- Smooth curve -->
+              <path d="M50,50 Q100,120 150,130 T250,140 T450,110 T650,95 T850,100 T1050,85 T1250,80" fill="none"
+                stroke="#1c1f6e" stroke-width="2" />
+
+              <path
+                d="M50,50  Q100,120 150,130 T250,140 T450,110 T650,95 T850,100 T1050,85 T1250,80 L1250,250 L50,250 Z"
+                fill="url(#curveGradient)" stroke="none" />
+
+
+              <path d="M50,250  Q100,240 150,230 T250,220 T450,190 T650,210 T850,190 
+             T1050,210 T1250,190 L1250,250 L50,250 Z" fill="url(#curveGradient2)" stroke="none" />
+
+              <path d="M50,250  Q100,240 150,230 T250,220 T450,190 T650,210 T850,190 
+                T1050,210 T1250,190" stroke="#14cdc8" stroke-width="2" fill="none" />
+
+
+              <!-- Data Points -->
+              <circle cx="50" cy="50" r="5" fill="#1c1f6e" />
+              <circle cx="250" cy="140" r="5" fill="#1c1f6e" />
+              <circle cx="450" cy="110" r="5" fill="#1c1f6e" />
+              <circle cx="650" cy="95" r="5" fill="#1c1f6e" />
+              <circle cx="850" cy="100" r="5" fill="#1c1f6e" />
+              <circle cx="1050" cy="85" r="5" fill="#1c1f6e" />
+              <circle cx="1250" cy="80" r="5" fill="#1c1f6e" />
+
+
+              <!-- Data points for the new curve -->
+              <circle cx="50" cy="250" r="5" fill="#14cdc8" />
+              <circle cx="250" cy="220" r="5" fill="#14cdc8" />
+              <circle cx="450" cy="190" r="5" fill="#14cdc8" />
+              <circle cx="650" cy="210" r="5" fill="#14cdc8" />
+              <circle cx="850" cy="190" r="5" fill="#14cdc8" />
+              <circle cx="1050" cy="210" r="5" fill="#14cdc8" />
+              <circle cx="1250" cy="190" r="5" fill="#14cdc8" />
+
+            </svg>
+
+            <!-- losses graph/ -->
+
+            <svg id="lossess-graph" width="100%" height="300">
+              <!-- Horizontal Grid Lines with Labels -->
+              <line x1="50" y1="5" x2="1300" y2="5" stroke="lightgray" />
+              <line x1="50" y1="50" x2="1300" y2="50" stroke="lightgray" />
+              <line x1="50" y1="100" x2="1300" y2="100" stroke="lightgray" />
+              <line x1="50" y1="150" x2="1300" y2="150" stroke="lightgray" />
+              <line x1="50" y1="200" x2="1300" y2="200" stroke="lightgray" />
+              <line x1="50" y1="250" x2="1300" y2="250" stroke="lightgray" />
+
+              <!-- Labels for Horizontal Grid -->
+              <text x="10" y="255" font-size="12" fill="black">0M</text>
+              <text x="10" y="205" font-size="12" fill="black">3M</text>
+              <text x="10" y="155" font-size="12" fill="black">6M</text>
+              <text x="10" y="105" font-size="12" fill="black">9M</text>
+              <text x="10" y="55" font-size="12" fill="black">12M</text>
+              <text x="10" y="15" font-size="12" fill="black">15M</text>
+
+
+
+              <!-- Labels -->
+              <text x="50" y="290" font-size="12" fill="black">Mon</text>
+              <text x="250" y="290" font-size="12" fill="black">Tue</text>
+              <text x="450" y="290" font-size="12" fill="black">Wed</text>
+              <text x="650" y="290" font-size="12" fill="black">Thu</text>
+              <text x="850" y="290" font-size="12" fill="black">Fri</text>
+              <text x="1050" y="290" font-size="12" fill="black">Sat</text>
+              <text x="1250" y="290" font-size="12" fill="black">Sun</text>
+
+
+              <defs>
+                <linearGradient id="curveGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#FF6D6D4D" stop-opacity="1" />
+                  <stop offset="80%" stop-color="#FF6D6D4D" stop-opacity="0.1" />
+                </linearGradient>
+                <linearGradient id="curveGradient4" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#F9D1004D" stop-opacity="1" />
+                  <stop offset="80%" stop-color="#F9D1004D" stop-opacity="0.1" />
+                </linearGradient>
+              </defs>
+
+              <path d="M50,50 Q100,120 150,130 T250,140 T450,110 T650,95 T850,100 T1050,85 T1250,80" fill="none"
+              stroke="#ff6d6d" stroke-width="2" />
+
+            <path
+              d="M50,50  Q100,120 150,130 T250,140 T450,110 T650,95 T850,100 T1050,85 T1250,80 L1250,250 L50,250 Z"
+              fill="url(#curveGradient3)" stroke="none" />
+
+
+            <path d="M50,250  Q100,240 150,230 T250,220 T450,190 T650,210 T850,190 
+           T1050,210 T1250,190 L1250,250 L50,250 Z" fill="url(#curveGradient4)" stroke="none" />
+
+            <path d="M50,250  Q100,240 150,230 T250,220 T450,190 T650,210 T850,190 
+              T1050,210 T1250,190" stroke="#f9d100" stroke-width="2" fill="none" />
+
+
+            <!-- Data Points -->
+            <circle cx="50" cy="50" r="5" fill="#ff6d6d" />
+            <circle cx="250" cy="140" r="5" fill="#ff6d6d" />
+            <circle cx="450" cy="110" r="5" fill="#ff6d6d" />
+            <circle cx="650" cy="95" r="5" fill="#ff6d6d" />
+            <circle cx="850" cy="100" r="5" fill="#ff6d6d" />
+            <circle cx="1050" cy="85" r="5" fill="#ff6d6d" />
+            <circle cx="1250" cy="80" r="5" fill="#ff6d6d" />
+
+
+            <!-- Data points for the new curve -->
+            <circle cx="50" cy="250" r="5" fill="#f9d100" />
+            <circle cx="250" cy="220" r="5" fill="#f9d100" />
+            <circle cx="450" cy="190" r="5" fill="#f9d100" />
+            <circle cx="650" cy="210" r="5" fill="#f9d100" />
+            <circle cx="850" cy="190" r="5" fill="#f9d100" />
+            <circle cx="1050" cy="210" r="5" fill="#f9d100" />
+            <circle cx="1250" cy="190" r="5" fill="#f9d100" />
+
+            </svg>
+
+          </div>
+
+      </div>
+
+  </main>
+
+  <!--     footer -->
+  <footer></footer>
+</body>
+
 </html>
