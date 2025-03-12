@@ -79,6 +79,34 @@ textarea {
   width: 100%;
 }
 
+table {
+  border-collapse: collapse;
+  font-size: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+thead {
+  background-color: var(--blue);
+  color: var(--white);
+  font-weight: bold;
+}
+
+th,
+td {
+  border: 1px solid var(--border-color);
+  height: 60px;
+  padding: 12px;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--gray);
+}
+
+tbody tr {
+  border-bottom: 1px var(--text-gray) solid;
+}
 /* ids */
 
 #sidebar {
@@ -97,10 +125,6 @@ textarea {
   top: 0;
   width: 100%;
   z-index: 5;
-}
-
-.form-group > label {
-  margin-bottom: 10px;
 }
 
 /* Hide both graphs by default */
@@ -147,6 +171,31 @@ textarea {
   color: var(--text-primary);
 }
 
+#show-table-label {
+  background-image: url("./assets/table_dark.svg");
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+#show-grid-label {
+  background-image: url("./assets/grid_dark.svg");
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+#show-table-label,
+#show-grid-label {
+  background-color: var(--background);
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px gray solid;
+  height: 48px;
+  padding: 8px;
+  width: 48px;
+}
+
 /* classes */
 
 .drop-down-container {
@@ -179,14 +228,18 @@ textarea {
 }
 
 .profile-image {
-  border-radius: 50px;
-  height: 25px;
-  width: 25px;
+  border-radius: 50%;
+  height: 34px;
+  width: 34px;
 }
 
 .dropbtn {
+  all: unset;
   color: black;
-  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 10px;
   padding: 10px;
   text-align: center;
   width: auto;
@@ -200,18 +253,20 @@ textarea {
 }
 
 .dropdown-content {
-  background-color: var(--card-bg);
+  background-color: var(--background);
+  border-radius: 6px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   display: none;
   margin-top: 14rem;
-  min-width: 160px;
+  min-width: 158px;
   position: absolute;
-  z-index: 1;
 }
 
 .dropdown-content a {
   color: black;
   display: block;
+  font-size: 14px;
+  font-weight: 400;
   padding: 12px 16px;
   text-decoration: none;
 }
@@ -220,7 +275,7 @@ textarea {
   background-color: var(--card-bg);
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:focus-within .dropdown-content {
   display: block;
 }
 
@@ -327,6 +382,10 @@ textarea {
   width: 100%;
 }
 
+.form-group > label {
+  margin-bottom: 10px;
+}
+
 .color-indicator {
   height: 10px;
   width: 10px;
@@ -428,7 +487,7 @@ textarea {
 }
 
 .card {
-  align-content: center;
+  align-content: space-between;
   background-color: var(--card-bg);
   border-radius: 16px;
   height: 124px;
@@ -578,10 +637,10 @@ textarea {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: flex-start;
   margin: 2rem;
-  width: 100%;
+  width: 200px;
 }
 
 .legend {
@@ -639,16 +698,6 @@ textarea {
   width: 134px;
 }
 
-#show-table-label {
-  border-bottom-left-radius: 6px;
-  border-top-left-radius: 6px;
-}
-
-#show-grid-label {
-  border-bottom-right-radius: 6px;
-  border-top-right-radius: 6px;
-}
-
 .show-table:checked ~ .data-container #table {
   display: table;
 }
@@ -666,17 +715,12 @@ textarea {
   display: none;
 }
 
-#show-table-label,
-#show-grid-label {
-  background-color: var(--background);
-  border: 1px gray solid;
-}
-
 .show-table:checked
   ~ .data-card-header
   .data-switch-button-group
   #show-table-label {
   background-color: #1c1f6e;
+  background-image: url("./assets/table_light.svg");
 }
 
 .show-grid:checked
@@ -684,6 +728,7 @@ textarea {
   .data-switch-button-group
   #show-grid-label {
   background-color: #1c1f6e;
+  background-image: url("./assets/grid_light.svg");
 }
 
 .toggle-btn {
@@ -695,35 +740,6 @@ textarea {
   margin: auto;
   overflow-x: auto;
   width: 100%;
-}
-
-table {
-  border-collapse: collapse;
-  font-size: 14px;
-  overflow: hidden;
-  width: 100%;
-}
-
-thead {
-  background-color: var(--blue);
-  color: var(--white);
-  font-weight: bold;
-}
-
-th,
-td {
-  border: 1px solid var(--border-color);
-  height: 60px;
-  padding: 12px;
-  text-align: center;
-}
-
-tbody tr:nth-child(even) {
-  background-color: var(--gray);
-}
-
-tbody tr {
-  border-bottom: 1px var(--text-gray) solid;
 }
 
 .icon-small {
@@ -766,7 +782,6 @@ tbody tr {
 }
 
 #grid {
-  /* background-color: var(--card-bg); */
   box-shadow: none;
 }
 
@@ -809,23 +824,6 @@ tbody tr {
 .icons {
   display: flex;
   gap: 8px;
-}
-
-.icons i {
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 6px;
-}
-
-.icons .edit {
-  background: #e6f4ea;
-  color: #1f7a40;
-}
-
-.icons .delete {
-  background: #fde2e2;
-  color: #d93025;
 }
 
 .data-card-content {
