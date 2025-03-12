@@ -430,11 +430,6 @@ textarea {
   padding: 24px;
 }
 
-.card.charts:nth-child(5) {
-  grid-column: span 3;
-  height: fit-content;
-}
-
 .card-header {
   align-items: center;
   display: flex;
@@ -459,8 +454,37 @@ textarea {
   width: 184px;
 }
 
+.month-picker img {
+  height: 18px;
+  object-fit: contain;
+  width: 18px; 
+}
+
 .card-title {
   font-size: 14px;
+  font-weight: 500;
+}
+
+.card.charts:nth-child(5) {
+  grid-column: span 3;
+}
+
+.card.charts:nth-child(6) {
+  grid-column: span 1;
+}
+
+.card-header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 4rem;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -501,7 +525,7 @@ textarea {
 /* graphs and charts */
 
 .charts {
-  height: fit-content;
+  height: auto;
 }
 
 .switch-graph {
@@ -565,12 +589,10 @@ textarea {
 
 .legend-indicator {
   border-radius: 50%;
-  content: "";
   display: inline-block;
   height: 8px;
   width: 8px;
 }
-
 /* media queries */
 
 @media screen and (max-width: 496px) {
@@ -581,6 +603,10 @@ textarea {
     min-width: 300px;
   }
   .card.charts:nth-child(5) {
+    grid-column: span 1 !important;
+  }
+ 
+  .card.charts:nth-child(6) {
     grid-column: span 1 !important;
   }
 
@@ -622,9 +648,16 @@ textarea {
     grid-column: span 2;
     height: fit-content;
   }
+   
+  .card.charts:nth-child(6) {
+    grid-column: span 2;
+    height: fit-content;
+  }
+  
   .card-header {
     height: max-content;
   }
+ 
   .horizontal-padding {
     padding-left: 36px;
     padding-right: 36px;
