@@ -30,10 +30,11 @@
 html {
   font-family: "Work Sans", sans-serif;
   font-size: 62.5%;
+  overflow: auto;
 }
 
 img {
-  display: block;
+  display: inline-block;
   margin: 0.5rem;
   max-width: 100%;
 }
@@ -41,6 +42,15 @@ img {
 body {
   background-color: var(--background);
   height: 100vh;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
 }
 
 nav {
@@ -69,6 +79,34 @@ textarea {
   width: 100%;
 }
 
+table {
+  border-collapse: collapse;
+  font-size: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+thead {
+  background-color: var(--blue);
+  color: var(--white);
+  font-weight: bold;
+}
+
+th,
+td {
+  border: 1px solid var(--border-color);
+  height: 60px;
+  padding: 12px;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--gray);
+}
+
+tbody tr {
+  border-bottom: 1px var(--text-gray) solid;
+}
 /* ids */
 
 #sidebar {
@@ -82,15 +120,11 @@ textarea {
 #sidebar:target ~ .blur-background {
   background-color: #0006;
   display: block;
-  height: 100vh;
+  height: 10000px;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 5;
-}
-
-#sidebar > label {
-  margin-bottom: 10px;
 }
 
 /* Hide both graphs by default */
@@ -137,6 +171,31 @@ textarea {
   color: var(--text-primary);
 }
 
+#show-table-label {
+  background-image: url("./assets/table_dark.svg");
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+#show-grid-label {
+  background-image: url("./assets/grid_dark.svg");
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+#show-table-label,
+#show-grid-label {
+  background-color: var(--background);
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px gray solid;
+  height: 48px;
+  padding: 8px;
+  width: 48px;
+}
+
 /* classes */
 
 .drop-down-container {
@@ -169,19 +228,18 @@ textarea {
 }
 
 .profile-image {
-  border-radius: 50px;
-  height: 25px;
-  width: 25px;
-}
-
-.horizontal-padding {
-  padding-left: 4rem;
-  padding-right: 4rem;
+  border-radius: 50%;
+  height: 34px;
+  width: 34px;
 }
 
 .dropbtn {
+  all: unset;
   color: black;
-  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 10px;
   padding: 10px;
   text-align: center;
   width: auto;
@@ -195,18 +253,20 @@ textarea {
 }
 
 .dropdown-content {
-  background-color: var(--card-bg);
+  background-color: var(--background);
+  border-radius: 6px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   display: none;
   margin-top: 14rem;
-  min-width: 160px;
+  min-width: 158px;
   position: absolute;
-  z-index: 1;
 }
 
 .dropdown-content a {
   color: black;
   display: block;
+  font-size: 14px;
+  font-weight: 400;
   padding: 12px 16px;
   text-decoration: none;
 }
@@ -215,7 +275,7 @@ textarea {
   background-color: var(--card-bg);
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:focus-within .dropdown-content {
   display: block;
 }
 
@@ -322,6 +382,10 @@ textarea {
   width: 100%;
 }
 
+.form-group > label {
+  margin-bottom: 10px;
+}
+
 .color-indicator {
   height: 10px;
   width: 10px;
@@ -423,7 +487,7 @@ textarea {
 }
 
 .card {
-  align-content: center;
+  align-content: space-between;
   background-color: var(--card-bg);
   border-radius: 16px;
   height: 124px;
@@ -454,12 +518,6 @@ textarea {
   width: 184px;
 }
 
-.month-picker img {
-  height: 18px;
-  object-fit: contain;
-  width: 18px; 
-}
-
 .card-title {
   font-size: 14px;
   font-weight: 500;
@@ -471,6 +529,10 @@ textarea {
 
 .card.charts:nth-child(6) {
   grid-column: span 1;
+}
+
+.card.data-table:nth-child(7) {
+  grid-column: span 4;
 }
 
 .card-header {
@@ -575,10 +637,10 @@ textarea {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: flex-start;
   margin: 2rem;
-  width: 100%;
+  width: 200px;
 }
 
 .legend {
@@ -593,6 +655,209 @@ textarea {
   height: 8px;
   width: 8px;
 }
+
+/* product detail table and grid/ */
+
+.card-icon > img {
+  height: 50px;
+  min-height: 50px;
+  min-width: 50px;
+  width: 50px;
+}
+
+.data-table {
+  height: fit-content;
+  min-width: 300px;
+  padding: 0px;
+  position: relative;
+}
+
+.data-table > .card-header {
+  margin: 24px;
+  width: auto;
+}
+
+.data-switch-button-group {
+  display: flex;
+  justify-content: center;
+  right: 0px;
+  top: 0px;
+  width: 254px;
+}
+
+.add-record-button {
+  align-items: center;
+  background-color: var(--blue);
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  margin-left: 10px;
+  text-align: center;
+  width: 134px;
+}
+
+.show-table:checked ~ .data-container #table {
+  display: table;
+}
+
+.show-table:checked ~ .data-container #grid {
+  display: none;
+}
+
+.show-grid:checked ~ .data-container #grid {
+  display: block;
+  width: auto;
+}
+
+.show-grid:checked ~ .data-container #table {
+  display: none;
+}
+
+.show-table:checked
+  ~ .data-card-header
+  .data-switch-button-group
+  #show-table-label {
+  background-color: #1c1f6e;
+  background-image: url("./assets/table_light.svg");
+}
+
+.show-grid:checked
+  ~ .data-card-header
+  .data-switch-button-group
+  #show-grid-label {
+  background-color: #1c1f6e;
+  background-image: url("./assets/grid_light.svg");
+}
+
+.toggle-btn {
+  background-color: var(--blue);
+  display: inline;
+}
+
+.data-container {
+  margin: auto;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.icon-small {
+  height: 14px;
+  width: 14px;
+}
+
+.icon-mid {
+  height: 20px;
+  width: 20px;
+}
+
+#showTable:checked + label {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+#showGrid:checked + label {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.card-content {
+  max-width: 100rem;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.graph-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical scroll */
+  white-space: nowrap; /* Ensure content stays in a single line */
+  width: 100%;
+}
+
+.graph {
+  height: auto;
+  min-width: 1300px;
+}
+
+#grid {
+  box-shadow: none;
+}
+
+.data-grid {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+  margin: 1rem;
+  padding: 2rem;
+}
+
+.data-card {
+  background-color: var(--background);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 288px;
+  padding: 15px;
+  width: 280px;
+}
+
+.data-card-header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.data-card-header h3 {
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.icons {
+  display: flex;
+  gap: 8px;
+}
+
+.data-card-content {
+  color: var(--text-primary);
+  display: grid;
+  font-size: 14px;
+  gap: 18px 0px;
+  grid-template-columns: auto auto;
+}
+
+.data-card-content-properties > label {
+  color: var(--text-gray);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.data-card-content-properties > span {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.data-card-content > label {
+  color: var(--text-gray);
+}
+
+.data-card-content .status {
+  color: var(--red);
+  font-weight: bold;
+}
+
+.data-card-content .price {
+  font-weight: bold;
+}
+
 /* media queries */
 
 @media screen and (max-width: 496px) {
@@ -605,8 +870,12 @@ textarea {
   .card.charts:nth-child(5) {
     grid-column: span 1 !important;
   }
- 
+
   .card.charts:nth-child(6) {
+    grid-column: span 1 !important;
+  }
+
+  .card.data-table:nth-child(7) {
     grid-column: span 1 !important;
   }
 
@@ -621,10 +890,6 @@ textarea {
 }
 
 @media screen and (max-width: 600px) {
-  .card {
-    height: 20rem;
-  }
-
   .nav-links {
     padding: 0.2rem;
   }
@@ -632,10 +897,6 @@ textarea {
   .horizontal-padding {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-
-  .data-table {
-    height: auto;
   }
 }
 
@@ -646,18 +907,20 @@ textarea {
 
   .card.charts:nth-child(5) {
     grid-column: span 2;
-    height: fit-content;
   }
-   
+
   .card.charts:nth-child(6) {
     grid-column: span 2;
-    height: fit-content;
   }
-  
+
+  .card.data-table:nth-child(7) {
+    grid-column: span 2;
+  }
+
   .card-header {
     height: max-content;
   }
- 
+
   .horizontal-padding {
     padding-left: 36px;
     padding-right: 36px;
