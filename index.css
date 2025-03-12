@@ -11,7 +11,7 @@
   --shadow: #1c1f6e1f;
   --text-primary: #000;
   --text-secondary: #1c1f6e;
-  --text-gray: #0007;
+  --text-gray: #a1a9b8;
   --white: #ffffff;
   --yellow: #f9d100;
 }
@@ -58,7 +58,6 @@ label {
   display: block;
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
 input,
@@ -90,18 +89,20 @@ textarea {
   z-index: 5;
 }
 
+#sidebar > label {
+  margin-bottom: 10px;
+}
+
 /* Hide both graphs by default */
 #revenue-graph,
-#lossess-graph {
+#losses-graph {
   display: none;
   min-width: 1300px;
 }
 
-#showRevenueLine,
-#showLossessLine {
-  background-color: transparent;
-  height: 2px;
-  width: 94px;
+#revenue-graph-legends,
+#losses-graph-legends {
+  display: none;
 }
 
 /* Show revenue graph when revenue radio is checked */
@@ -110,17 +111,30 @@ textarea {
 }
 
 /* Show losses graph when losses radio is checked */
-#showLossess:checked ~ .graph-container #lossess-graph {
+#showLosses:checked ~ .graph-container #losses-graph {
   display: inline-block;
 }
+
+/* Show revenue graph when revenue radio is checked */
+#showRevenue:checked ~ .graph-container #revenue-graph-legends {
+  display: block;
+}
+
+/* Show losses graph when losses radio is checked */
+#showLosses:checked ~ .graph-container #losses-graph-legends {
+  display: block;
+}
+
 /* Show revenue line when revenue radio is checked */
-#showRevenue:checked ~ .switch-graph-line #showRevenueLine {
-  background-color: #1b1e6d;
+#showRevenue:checked ~ .switch-graph #show-revenue-label {
+  border-bottom: 1px var(--blue) solid;
+  color: var(--text-primary);
 }
 
 /* Show losses line when losses radio is checked */
-#showLossess:checked ~ .switch-graph-line #showLossessLine {
-  background-color: #1b1e6d;
+#showLosses:checked ~ .switch-graph #show-losses-label {
+  border-bottom: 1px var(--blue) solid;
+  color: var(--text-primary);
 }
 
 /* classes */
@@ -484,6 +498,8 @@ textarea {
   width: 50px;
 }
 
+/* graphs and charts */
+
 .charts {
   height: fit-content;
 }
@@ -492,28 +508,67 @@ textarea {
   align-items: center;
   display: flex;
   height: 24px;
+  height: 34px;
   justify-content: space-evenly;
-  width: 188px;
-}
-
-.switch-graph-line {
-  align-items: center;
-  display: flex;
-  height: 24px;
-  justify-content: space-between;
+  margin-bottom: 24px;
   width: 188px;
 }
 
 .switch-graph > label {
+  align-items: center;
+  align-items: center;
+  color: var(--text-gray);
+  display: inline-block;
+  display: flex;
   font-size: 14px;
   font-weight: 400;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 }
 
 .graph-container {
   overflow-x: auto; /* Enable horizontal scrolling */
   overflow-y: hidden; /* Prevent vertical scroll */
+  text-align: center;
   white-space: nowrap;
   width: 100%;
+  width: 100%;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.graph-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.graph-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.legends {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin: 2rem;
+  width: 100%;
+}
+
+.legend {
+  font-size: 14px;
+  font-weight: 400;
+  width: fit-content;
+}
+
+.legend-indicator {
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  height: 8px;
+  width: 8px;
 }
 
 /* media queries */
@@ -522,7 +577,7 @@ textarea {
   .container {
     grid-template-columns: repeat(1, 1fr) !important;
   }
-  .card{
+  .card {
     min-width: 300px;
   }
   .card.charts:nth-child(5) {
