@@ -92,14 +92,14 @@ textarea {
 #sidebar:target ~ .blur-background {
   background-color: #0006;
   display: block;
-  height: 100vh;
+  height: 10000px;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 5;
 }
 
-#sidebar > label {
+.form-group > label {
   margin-bottom: 10px;
 }
 
