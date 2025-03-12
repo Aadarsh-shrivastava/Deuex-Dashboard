@@ -386,6 +386,36 @@ textarea {
   padding: 2rem;
 }
 
+.card.charts:nth-child(5) {
+  grid-column: span 3;
+  height: fit-content;
+}
+
+.card.charts:nth-child(5) {
+  grid-column: span 3;
+  height: fit-content;
+}
+
+.card.charts:nth-child(6) {
+  grid-column: span 1;
+  height: fit-content;
+}
+
+.card-header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 4rem;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .card-content {
   align-items: center;
   display: flex;
@@ -420,11 +450,50 @@ textarea {
   width: 50px;
 }
 
+.chart-points {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem;
+  width: 20rem;
+}
+
+.chart-point {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 2px;
+  padding: 2px;
+  width: fit-content;
+}
+
+.point {
+  border-radius: 50px;
+  display: inline-block;
+  height: 8px;
+  margin-right: 5px;
+  width: 8px;
+}
+
 /* media queries */
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 496px) {
   .container {
     grid-template-columns: repeat(1, 1fr) !important;
+  }
+  
+  .card {
+    min-width: 300px;
+  }
+
+  .card.charts:nth-child(5) {
+    grid-column: span 1 !important;
+  }
+ 
+  .card.charts:nth-child(6) {
+    grid-column: span 1 !important;
   }
 
   .horizontal-padding {
@@ -459,6 +528,20 @@ textarea {
 @media screen and (max-width: 1200px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card.charts:nth-child(5) {
+    grid-column: span 2;
+    height: fit-content;
+  }
+
+  .card.charts:nth-child(6) {
+    grid-column: span 2;
+    height: fit-content;
+  }
+
+  .card-header {
+    height: max-content;
   }
 
   .horizontal-padding {
