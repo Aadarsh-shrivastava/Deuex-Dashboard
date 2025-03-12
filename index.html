@@ -244,7 +244,7 @@
             <p class="card-title">Total Revenue / Losses</p>
             <div class="month-picker">
               <span>July 24</span>
-              <img src="./assets/calendar.svg" />
+              <img class="icon-mid" src="./assets/calendar.svg" />
             </div>
           </div>
 
@@ -523,31 +523,72 @@
                   ></div>
                   Product 2
                 </div>
-               </div>
+              </div>
             </div>
-           </div>
           </div>
-<!--          product chart    -->
+        </div>
+        <!-- product chart    -->
         <div class="card charts">
           <div class="card-header">
             <p class="card-title">Total Sales</p>
           </div>
-          <div class="card-content" style="flex-direction: column;">
-            <svg width="228" height="228" viewBox="0 0 42 42" class="donut-chart">
-              <circle class="donut-segment" cx="21" cy="21" r="15.9155" fill="transparent" stroke="#1c1f6e"
-                stroke-width="8" stroke-dasharray="20 80" stroke-dashoffset="0"></circle>
-  
-              <circle class="donut-segment" cx="21" cy="21" r="15.9155" fill="transparent" stroke="#ff6d6d"
-                stroke-width="8" stroke-dasharray="30 70" stroke-dashoffset="-20"></circle>
-  
-              <circle class="donut-segment" cx="21" cy="21" r="15.9155" fill="transparent" stroke="#14cdc8"
-                stroke-width="8" stroke-dasharray="30 70" stroke-dashoffset="-50"></circle>
-  
-              <circle class="donut-segment" cx="21" cy="21" r="15.9155" fill="transparent" stroke="#f9d100"
-                stroke-width="8" stroke-dasharray="20 80" stroke-dashoffset="-80"></circle>
+          <div class="card-content" style="flex-direction: column">
+            <svg
+              width="228"
+              height="228"
+              viewBox="0 0 42 42"
+              class="donut-chart"
+            >
+              <circle
+                class="donut-segment"
+                cx="21"
+                cy="21"
+                r="15.9155"
+                fill="transparent"
+                stroke="#1c1f6e"
+                stroke-width="8"
+                stroke-dasharray="20 80"
+                stroke-dashoffset="0"
+              ></circle>
+
+              <circle
+                class="donut-segment"
+                cx="21"
+                cy="21"
+                r="15.9155"
+                fill="transparent"
+                stroke="#ff6d6d"
+                stroke-width="8"
+                stroke-dasharray="30 70"
+                stroke-dashoffset="-20"
+              ></circle>
+
+              <circle
+                class="donut-segment"
+                cx="21"
+                cy="21"
+                r="15.9155"
+                fill="transparent"
+                stroke="#14cdc8"
+                stroke-width="8"
+                stroke-dasharray="30 70"
+                stroke-dashoffset="-50"
+              ></circle>
+
+              <circle
+                class="donut-segment"
+                cx="21"
+                cy="21"
+                r="15.9155"
+                fill="transparent"
+                stroke="#f9d100"
+                stroke-width="8"
+                stroke-dasharray="20 80"
+                stroke-dashoffset="-80"
+              ></circle>
             </svg>
-  
-             <div class="legends">
+
+            <div class="legends">
               <div class="legend">
                 <div
                   class="legend-indicator"
@@ -577,7 +618,248 @@
                 Product 4
               </div>
             </div>
-           </div>
+          </div>
+        </div>
+
+        <!-- product detail table and grid -->
+        <div class="card data-table">
+          <input
+            type="radio"
+            id="showTable"
+            name="tableToggle"
+            class="show-table"
+            checked
+            hidden
+          />
+
+          <input
+            type="radio"
+            id="showGrid"
+            name="tableToggle"
+            class="show-grid"
+            hidden
+          />
+
+          <div class="card-header data-card-header">
+            <p class="card-title">Product Details</p>
+            <div class="data-switch-button-group">
+              <label for="showTable" id="show-table-label">
+                <img class="icon-mid" src="./assets/table-dark.svg" />
+              </label>
+              <label for="showGrid" id="show-grid-label">
+                <img class="icon-mid" src="./assets/grid_dark.svg" />
+              </label>
+              <div class="add-record-button">
+                <a
+                  style="
+                    color: white;
+                    text-decoration: none;
+                    align-content: center;
+                    margin: 0px;
+                  "
+                  href="#sidebar"
+                  class="toggle-btn"
+                  >Add Record </a
+                ><img class="icon-small" src="./assets/add.svg" />
+              </div>
+            </div>
+          </div>
+
+          <div class="data-container">
+            <table id="table">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Product Name</th>
+                  <th>Product Date</th>
+                  <th>Exchange</th>
+                  <th>Color Options</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <span
+                      style="
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                      "
+                      >Bluetooth Speaker <img src="./assets/error.svg"
+                    /></span>
+                  </td>
+                  <td>22/07/2024</td>
+                  <td>
+                    <img
+                      style="display: inline"
+                      class="icon-mid"
+                      src="./assets/wrong.svg"
+                    />
+                  </td>
+                  <td>Red</td>
+                  <td>4500</td>
+                  <td>3</td>
+                  <td>13500</td>
+                  <td>
+                    <img
+                      style="display: inline"
+                      class="icon-mid"
+                      src="./assets/edit.svg"
+                    />
+                    <img
+                      style="display: inline"
+                      class="icon-mid"
+                      src="./assets/delete.svg"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <span
+                      style="
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                      "
+                      >Bluetooth Speaker <img src="./assets/error.svg"
+                    /></span>
+                  </td>
+                  <td>22/07/2024</td>
+                  <td>
+                    <img
+                      style="display: inline"
+                      class="icon-mid"
+                      src="./assets/tick.svg"
+                    />
+                  </td>
+                  <td>Red</td>
+                  <td>4500</td>
+                  <td>3</td>
+                  <td>13500</td>
+                  <td>
+                    <img
+                      style="display: inline"
+                      class="icon-mid"
+                      src="./assets/edit.svg"
+                    />
+                    <img
+                      style="display: inline"
+                      class="icon-mid"
+                      src="./assets/delete.svg"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div id="grid">
+              <div class="data-grid">
+                <div class="data-card">
+                  <div class="data-card-header">
+                    <h3>Bluetooth Speaker</h3>
+                    <div class="icons">
+                      <img
+                        style="display: inline"
+                        class="icon-mid"
+                        src="./assets/edit.svg"
+                      />
+                      <img
+                        style="display: inline"
+                        class="icon-mid"
+                        src="./assets/delete.svg"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="data-card-content">
+                    <div class="data-card-content-properties">
+                      <label class="label">ID</label>
+                      <span class="property">01</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Product Date</label>
+                      <span class="property">22/07/2024</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Status</label>
+                      <span class="property">22/07/2024</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Color Option</label>
+                      <span class="property">Red, Blue</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Quantity</label>
+                      <span class="property">3</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Price</label>
+                      <span class="property">4500</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Amount</label>
+                      <span class="property">13500</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-card">
+                  <div class="data-card-header">
+                    <h3>Bluetooth Speaker</h3>
+                    <div class="icons">
+                      <img
+                        style="display: inline"
+                        class="icon-mid"
+                        src="./assets/edit.svg"
+                      />
+                      <img
+                        style="display: inline"
+                        class="icon-mid"
+                        src="./assets/delete.svg"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="data-card-content">
+                    <div class="data-card-content-properties">
+                      <label class="label">ID</label>
+                      <span class="property">01</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Product Date</label>
+                      <span class="property">22/07/2024</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Status</label>
+                      <span class="property">22/07/2024</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Color Option</label>
+                      <span class="property">Red, Blue</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Quantity</label>
+                      <span class="property">3</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Price</label>
+                      <span class="property">4500</span>
+                    </div>
+                    <div class="data-card-content-properties">
+                      <label class="label">Amount</label>
+                      <span class="property">13500</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
