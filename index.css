@@ -11,7 +11,7 @@
   --shadow: #1c1f6e1f;
   --text-primary: #000;
   --text-secondary: #1c1f6e;
-  --text-gray: #0007;
+  --text-gray: #a1a9b8;
   --white: #ffffff;
   --yellow: #f9d100;
 }
@@ -58,7 +58,6 @@ label {
   display: block;
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
 input,
@@ -81,7 +80,6 @@ textarea {
 }
 
 #sidebar:target ~ .blur-background {
-  /* backdrop-filter: blur(2px); */
   background-color: #0006;
   display: block;
   height: 100vh;
@@ -89,6 +87,54 @@ textarea {
   top: 0;
   width: 100%;
   z-index: 5;
+}
+
+#sidebar > label {
+  margin-bottom: 10px;
+}
+
+/* Hide both graphs by default */
+#revenue-graph,
+#losses-graph {
+  display: none;
+  min-width: 1300px;
+}
+
+#revenue-graph-legends,
+#losses-graph-legends {
+  display: none;
+}
+
+/* Show revenue graph when revenue radio is checked */
+#showRevenue:checked ~ .graph-container #revenue-graph {
+  display: inline-block;
+}
+
+/* Show losses graph when losses radio is checked */
+#showLosses:checked ~ .graph-container #losses-graph {
+  display: inline-block;
+}
+
+/* Show revenue graph when revenue radio is checked */
+#showRevenue:checked ~ .graph-container #revenue-graph-legends {
+  display: block;
+}
+
+/* Show losses graph when losses radio is checked */
+#showLosses:checked ~ .graph-container #losses-graph-legends {
+  display: block;
+}
+
+/* Show revenue line when revenue radio is checked */
+#showRevenue:checked ~ .switch-graph #show-revenue-label {
+  border-bottom: 1px var(--blue) solid;
+  color: var(--text-primary);
+}
+
+/* Show losses line when losses radio is checked */
+#showLosses:checked ~ .switch-graph #show-losses-label {
+  border-bottom: 1px var(--blue) solid;
+  color: var(--text-primary);
 }
 
 /* classes */
@@ -381,24 +427,50 @@ textarea {
   background-color: var(--card-bg);
   border-radius: 16px;
   height: 124px;
-  /* max-width: 306px; */
-  min-width: fit-content;
-  padding: 2rem;
+  padding: 24px;
+}
+
+.card-header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 4rem;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.month-picker {
+  align-items: center;
+  background-color: white;
+  border: 1px solid #464f6029;
+  border-radius: 4px;
+  color: var(--text-gray);
+  display: flex;
+  font-size: 14px;
+  height: 34px;
+  justify-content: space-between;
+  padding: 12px;
+  width: 184px;
+}
+
+.month-picker img {
+  height: 18px;
+  object-fit: contain;
+  width: 18px; 
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .card.charts:nth-child(5) {
   grid-column: span 3;
-  height: fit-content;
-}
-
-.card.charts:nth-child(5) {
-  grid-column: span 3;
-  height: fit-content;
 }
 
 .card.charts:nth-child(6) {
   grid-column: span 1;
-  height: fit-content;
 }
 
 .card-header {
@@ -450,44 +522,86 @@ textarea {
   width: 50px;
 }
 
-.chart-points {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin: 1rem;
-  width: 20rem;
+/* graphs and charts */
+
+.charts {
+  height: auto;
 }
 
-.chart-point {
+.switch-graph {
+  align-items: center;
+  display: flex;
+  height: 24px;
+  height: 34px;
+  justify-content: space-evenly;
+  margin-bottom: 24px;
+  width: 188px;
+}
+
+.switch-graph > label {
+  align-items: center;
+  align-items: center;
+  color: var(--text-gray);
+  display: inline-block;
+  display: flex;
   font-size: 14px;
   font-weight: 400;
-  margin: 2px;
-  padding: 2px;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.graph-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical scroll */
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+  width: 100%;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.graph-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.graph-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.legends {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin: 2rem;
+  width: 100%;
+}
+
+.legend {
+  font-size: 14px;
+  font-weight: 400;
   width: fit-content;
 }
 
-.point {
-  border-radius: 50px;
+.legend-indicator {
+  border-radius: 50%;
   display: inline-block;
   height: 8px;
-  margin-right: 5px;
   width: 8px;
 }
-
 /* media queries */
 
 @media screen and (max-width: 496px) {
   .container {
     grid-template-columns: repeat(1, 1fr) !important;
   }
-  
   .card {
     min-width: 300px;
   }
-
   .card.charts:nth-child(5) {
     grid-column: span 1 !important;
   }
@@ -534,16 +648,16 @@ textarea {
     grid-column: span 2;
     height: fit-content;
   }
-
+   
   .card.charts:nth-child(6) {
     grid-column: span 2;
     height: fit-content;
   }
-
+  
   .card-header {
     height: max-content;
   }
-
+ 
   .horizontal-padding {
     padding-left: 36px;
     padding-right: 36px;
