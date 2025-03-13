@@ -656,14 +656,6 @@ tbody tr {
   font-weight: 500;
 }
 
-.card-content {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-}
-
 .stat {
   align-items: flex-start;
   display: flex;
@@ -746,7 +738,7 @@ tbody tr {
   gap: 2rem;
   justify-content: flex-start;
   margin: 2rem;
-  width: 200px;
+  width: 300px;
 }
 
 .legend {
@@ -800,8 +792,8 @@ tbody tr {
   font-size: 14px;
   justify-content: center;
   margin-left: 10px;
+  padding: 1rem;
   text-align: center;
-  width: 134px;
 }
 
 .show-table:checked ~ .data-container #table {
@@ -869,10 +861,10 @@ tbody tr {
 }
 
 .card-content {
-  max-width: 100rem;
-  padding: 1rem;
-  position: relative;
-  width: 100%;
+  align-items: center;
+  display: flex;
+  gap: 3rem;
+  justify-content: space-around;
 }
 
 .graph-container {
@@ -1000,6 +992,7 @@ tbody tr {
   font-weight: 400;
   margin: 8px;
 }
+
 /* media queries */
 
 @media screen and (max-width: 496px) {
@@ -1031,6 +1024,10 @@ tbody tr {
   }
 
   .dropbtn > p {
+    display: none;
+  }
+
+  .hidden-on-mobile {
     display: none;
   }
 }
