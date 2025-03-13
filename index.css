@@ -4,9 +4,9 @@
   --background: #ffffff;
   --blue: #1c1f6e;
   --card-bg: #f4f6fd;
-  --green: #ff6d6d;
+  --red: #ff6d6d;
   --primary: #1c1f6e;
-  --red: #14cdc8;
+  --green: #14cdc8;
   --secondary: #f4f6fd;
   --shadow: #1c1f6e1f;
   --text-primary: #000;
@@ -14,6 +14,7 @@
   --text-gray: #a1a9b8;
   --white: #ffffff;
   --yellow: #f9d100;
+  --danger: #ef4343;
 }
 
 *,
@@ -107,24 +108,48 @@ tbody tr:nth-child(even) {
 tbody tr {
   border-bottom: 1px var(--text-gray) solid;
 }
+
 /* ids */
 
 #sidebar {
+  overflow: auto;
   right: -300px;
 }
 
-#sidebar:target {
+#sidebar-conrtol-add,
+#sidebar-conrtol-edit {
+  height: 1px;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 1px;
+}
+
+#sidebar .sidebar-title#sidebar-add,
+#sidebar .sidebar-title#sidebar-edit {
+  display: none;
+}
+
+#sidebar-conrtol-add:target ~ #sidebar {
   right: 0;
 }
 
-#sidebar:target ~ .blur-background {
-  background-color: #0006;
+#sidebar-conrtol-add:target ~ #sidebar .sidebar-title#sidebar-add {
   display: block;
-  height: 10000px;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 5;
+}
+
+#sidebar-conrtol-edit:target ~ #sidebar {
+  right: 0;
+}
+
+#sidebar-conrtol-edit:target ~ #sidebar .sidebar-title#sidebar-edit {
+  display: block;
+}
+
+#sidebar-conrtol-edit:target ~ .blur-background,
+#sidebar-conrtol-add:target ~ .blur-background {
+  display: block;
 }
 
 /* Hide both graphs by default */
@@ -245,7 +270,7 @@ tbody tr {
   width: auto;
 }
 
-.dropdown {
+.dropdown > button {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -280,12 +305,93 @@ tbody tr {
 }
 
 .blur-background {
+  background-color: #0006;
   display: none;
+  height: 10000px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .horizontal-padding {
   padding-left: 72px;
   padding-right: 72px;
+}
+
+#alert {
+  display: none;
+}
+
+#alert:target {
+  display: block;
+}
+
+#alert:target ~ .blur-background {
+  display: block;
+  z-index: 5;
+}
+
+.alert {
+  background: var(--background);
+  border: 1px var(--text-gray) solid;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 186px;
+  justify-content: space-between;
+  left: 50%;
+  max-width: 440px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  z-index: 12;
+}
+
+.alert-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 20px;
+}
+
+.alert-content {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 20px;
+  margin-top: 0px;
+}
+
+.alert-footer {
+  align-content: center;
+  border-top: 1px var(--text-gray) solid;
+  height: 64px;
+  padding: auto;
+  width: 100%;
+}
+
+.alert-button-group {
+  display: flex;
+  gap: 12px;
+  height: 32px;
+  justify-content: flex-end;
+}
+
+.alert-button-primary,
+.alert-button-secondary {
+  border-radius: 6px;
+  color: var(--background);
+  height: 32px;
+  width: 70px;
+}
+
+.alert-button-primary {
+  background-color: var(--danger);
+}
+
+.alert-button-secondary {
+  background-color: var(--card-bg);
+  color: var(--text-gray);
 }
 
 .sidebar {
@@ -809,7 +915,7 @@ tbody tr {
 .data-card-header {
   align-items: center;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 12px;
   justify-content: space-between;
   margin-bottom: 10px;
@@ -858,6 +964,42 @@ tbody tr {
   font-weight: bold;
 }
 
+.error-container {
+  position: relative;
+}
+
+.error-box {
+  background-color: var(--background);
+  border-radius: 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  left: 30px;
+  max-width: 250px;
+  padding: 10px;
+  position: absolute;
+  text-align: left;
+  top: 50%;
+  transform: translateY(-50%);
+  width: max-content;
+  z-index: 10;
+}
+
+.error:hover ~ .error-box {
+  display: flex;
+}
+
+.error-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 8px;
+}
+
+.error-description {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 8px;
+}
 /* media queries */
 
 @media screen and (max-width: 496px) {
@@ -884,7 +1026,11 @@ tbody tr {
     padding-right: 1rem;
   }
 
-  .dropbtn {
+  .alert {
+    width: 300px;
+  }
+
+  .dropbtn > p {
     display: none;
   }
 }
