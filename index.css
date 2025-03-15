@@ -4,6 +4,7 @@
   --background: #ffffff;
   --blue: #1c1f6e;
   --card-bg: #f4f6fd;
+  --danger: #ef4343;
   --red: #ff6d6d;
   --primary: #1c1f6e;
   --green: #14cdc8;
@@ -14,7 +15,6 @@
   --text-gray: #a1a9b8;
   --white: #ffffff;
   --yellow: #f9d100;
-  --danger: #ef4343;
 }
 
 *,
@@ -907,7 +907,6 @@ tbody tr {
 .data-card-header {
   align-items: center;
   display: flex;
-  /* flex-wrap: wrap; */
   gap: 12px;
   justify-content: space-between;
   margin-bottom: 10px;
