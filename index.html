@@ -16,23 +16,28 @@
         <img class="nav-option" src="./assets/Setting.svg" />
         <div class="drop-down-container">
           <div class="dropdown">
-            <img class="profile-image" src="assets/dp.jpg" />
-            <button class="dropbtn">Sara John</button>
-            <div class="dropdown-content">
-              <a href="#">Edit Profile</a>
-              <a href="#">Change Password</a>
-              <a href="#">Logout</a>
-            </div>
-            <img class="select-icon" src="./assets/down.svg" />
+            <button class="dropbtn">
+              <img class="profile-image" src="assets/dp.jpg" />
+              <p>Sara John</p>
+              <div class="dropdown-content">
+                <a href="#">Edit Profile</a>
+                <a href="#">Change Password</a>
+                <a href="#">Logout</a>
+              </div>
+              <img class="select-icon" src="./assets/down.svg" />
+            </button>
           </div>
         </div>
       </div>
     </nav>
 
     <!--     sidebar -->
+    <div id="sidebar-conrtol-add"></div>
+    <div id="sidebar-conrtol-edit"></div>
     <aside id="sidebar" class="sidebar">
       <div class="sidebar-header">
-        <span class="sidebar-title">Add New Record</span>
+        <span class="sidebar-title" id="sidebar-add">Add New Record</span>
+        <span class="sidebar-title" id="sidebar-edit">Edit Record</span>
       </div>
       <div class="sidebar-container">
         <form class="form-container">
@@ -185,6 +190,26 @@
         </div>
       </div>
     </aside>
+
+    <!-- popup alert -->
+    <div id="alert">
+      <div class="alert">
+        <span class="alert-title">Delete Product</span>
+        <span class="alert-content"
+          >Are you sure you want to remove Bluetooth Speakers from the inventory
+          ?</span
+        >
+        <div class="alert-footer">
+          <div class="alert-button-group">
+            <a href="#">
+              <button class="alert-button-secondary">Cancel</button>
+            </a>
+            <button class="alert-button-primary">Delete</button>
+            <button></button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- sidebar blur background -->
     <div class="blur-background"></div>
@@ -586,38 +611,50 @@
                 stroke-dasharray="20 80"
                 stroke-dashoffset="-80"
               ></circle>
+
+              <circle
+                class="donut-segment"
+                cx="21"
+                cy="21"
+                r="15.9155"
+                fill="transparent"
+                stroke="#f9d100"
+                stroke-width="8"
+                stroke-dasharray="20 80"
+                stroke-dashoffset="-80"
+              ></circle>
             </svg>
 
             <div class="legends">
-              <div class="legend">
-                <div
-                  class="legend-indicator"
-                  style="background-color: #1c1f6e"
-                ></div>
-                Product 1
+                <div class="legend">
+                  <div
+                    class="legend-indicator"
+                    style="background-color: #1c1f6e"
+                  ></div>
+                  Product 1
+                </div>
+                <div class="legend">
+                  <div
+                    class="legend-indicator"
+                    style="background-color: #14cdc8"
+                  ></div>
+                  Product 2
+                </div>
+                <div class="legend">
+                  <div
+                    class="legend-indicator"
+                    style="background-color: #f9d100"
+                  ></div>
+                  Product 3
+                </div>
+                <div class="legend">
+                  <div
+                    class="legend-indicator"
+                    style="background-color: #ff6d6d"
+                  ></div>
+                  Product 4
+                </div>
               </div>
-              <div class="legend">
-                <div
-                  class="legend-indicator"
-                  style="background-color: #14cdc8"
-                ></div>
-                Product 2
-              </div>
-              <div class="legend">
-                <div
-                  class="legend-indicator"
-                  style="background-color: #f9d100"
-                ></div>
-                Product 3
-              </div>
-              <div class="legend">
-                <div
-                  class="legend-indicator"
-                  style="background-color: #ff6d6d"
-                ></div>
-                Product 4
-              </div>
-            </div>
           </div>
         </div>
 
@@ -653,9 +690,9 @@
                     align-content: center;
                     margin: 0px;
                   "
-                  href="#sidebar"
+                  href="#sidebar-conrtol-add"
                   class="toggle-btn"
-                  >Add Record </a
+                  ><span class="hidden-on-mobile"> Add Record </span></a
                 ><img class="icon-small" src="./assets/add.svg" />
               </div>
             </div>
@@ -680,14 +717,30 @@
                 <tr>
                   <td>1</td>
                   <td>
-                    <span
+                    <div
                       style="
                         display: flex;
-                        justify-content: space-evenly;
+                        justify-content: center;
+                        align-items: center;
                         align-items: center;
                       "
-                      >Bluetooth Speaker <img src="./assets/error.svg"
-                    /></span>
+                    >
+                      Bluetooth Speaker
+                      <div class="error-container">
+                        <img class="error" src="./assets/error.svg" />
+                        <div class="error-box">
+                          <img
+                            style="top: 25px; left: -15px; position: absolute"
+                            src="./assets/Left_Beak.svg"
+                          />
+                          <p class="error-title">Product Description</p>
+                          <span class="error-description">
+                            Portable speaker with powerful sound and long
+                            battery life.
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                   <td>22/07/2024</td>
                   <td>
@@ -702,29 +755,48 @@
                   <td>3</td>
                   <td>13500</td>
                   <td>
-                    <img
-                      style="display: inline"
-                      class="icon-mid"
-                      src="./assets/edit.svg"
-                    />
-                    <img
-                      style="display: inline"
-                      class="icon-mid"
-                      src="./assets/delete.svg"
-                    />
+                    <a href="#sidebar-conrtol-edit">
+                      <img
+                        style="display: inline"
+                        class="icon-mid"
+                        src="./assets/edit.svg"
+                    /></a>
+                    <a href="#alert">
+                      <img
+                        style="display: inline"
+                        class="icon-mid"
+                        src="./assets/delete.svg"
+                      />
+                    </a>
                   </td>
                 </tr>
                 <tr>
                   <td>1</td>
                   <td>
-                    <span
+                    <div
                       style="
                         display: flex;
-                        justify-content: space-evenly;
+                        justify-content: center;
+                        align-items: center;
                         align-items: center;
                       "
-                      >Bluetooth Speaker <img src="./assets/error.svg"
-                    /></span>
+                    >
+                      Bluetooth Speaker
+                      <div class="error-container">
+                        <img class="error" src="./assets/error.svg" />
+                        <div class="error-box">
+                          <img
+                            style="top: 25px; left: -15px; position: absolute"
+                            src="./assets/Left_Beak.svg"
+                          />
+                          <p class="error-title">Product Description</p>
+                          <span class="error-description">
+                            Portable speaker with powerful sound and long
+                            battery life.
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                   <td>22/07/2024</td>
                   <td>
@@ -760,6 +832,20 @@
                   <div class="data-card-header">
                     <h3>Bluetooth Speaker</h3>
                     <div class="icons">
+                      <div class="error-container">
+                        <img class="error" src="./assets/error.svg" />
+                        <div class="error-box">
+                          <img
+                            style="top: 25px; left: -15px; position: absolute"
+                            src="./assets/Left_Beak.svg"
+                          />
+                          <p class="error-title">Product Description</p>
+                          <span class="error-description">
+                            Portable speaker with powerful sound and long
+                            battery life.
+                          </span>
+                        </div>
+                      </div>
                       <img
                         style="display: inline"
                         class="icon-mid"
@@ -809,6 +895,20 @@
                   <div class="data-card-header">
                     <h3>Bluetooth Speaker</h3>
                     <div class="icons">
+                      <div class="error-container">
+                        <img class="error" src="./assets/error.svg" />
+                        <div class="error-box">
+                          <img
+                            style="top: 25px; left: -15px; position: absolute"
+                            src="./assets/Left_Beak.svg"
+                          />
+                          <p class="error-title">Product Description</p>
+                          <span class="error-description">
+                            Portable speaker with powerful sound and long
+                            battery life.
+                          </span>
+                        </div>
+                      </div>
                       <img
                         style="display: inline"
                         class="icon-mid"
